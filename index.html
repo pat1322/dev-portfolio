@@ -2,836 +2,2567 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Patrick Perez - Dev Portfolio</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Patrick Perez - Dev Portfolio</title>
+<meta content="" name="description">
+<meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<!-- Favicons -->
+<link href="assets/img/favicon.png" rel="icon">
+<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+<!-- Vendor CSS Files -->
+<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/vendor/aos/aos.css" rel="stylesheet">
+<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+<!-- Main CSS File -->
+<link href="assets/css/main.css" rel="stylesheet">
 
+<!-- Grouped CSS Styles -->
+<style>
+  /* ===== HEADER STYLES ===== */
+  .profile-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+
+  .profile-img {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  /* Static Profile Image */
+  .profile-img .static-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  /* GIF Overlay */
+  .profile-img .gif-overlay {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  /* Hover Effect - Show GIF */
+  .profile-img:hover .static-img {
+    opacity: 0;
+  }
+
+  .profile-img:hover .gif-overlay {
+    opacity: 1;
+  }
+
+  /* Neon Glow Effect */
+  .profile-img::after {
+    content: "";
+    position: absolute;
+    top: 63%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 183, 255, 0.8);
+    animation: neonGlow 1.5s infinite linear;
+    pointer-events: none;
+  }
+
+  @keyframes neonGlow {
+    0% {
+      box-shadow: 0 0 5px rgba(0, 183, 255, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(0, 183, 255, 1);
+    }
+    100% {
+      box-shadow: 0 0 5px rgba(0, 183, 255, 0.5);
+    }
+  }
+
+  /* Align Navmenu to Left */
+  .navmenu {
+    text-align: left;
+    width: 100%;
+    padding-left: 0px;
+  }
+
+  .navmenu ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .navmenu li {
+    text-align: left;
+    margin-bottom: 0px;
+  }
+
+  /* ===== HERO SECTION STYLES ===== */
+  /* Scope all styles to the hero section or its direct children */
+  #hero.hero {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  #hero .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.8s ease-in-out;
+    z-index: 1; /* Increased from -1 to ensure it's above the base layer */
+    opacity: 1; /* Ensure it's visible by default */
+  }
+  
+  #hero .container {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 20px;
+    transition: all 0.5s ease;
+    margin-top: 40vh; /* Add back the margin to lower the text position */
+  }
+  
+  #hero .container h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    transition: all 0.5s ease-in-out;
+    color: white; /* Added for better readability in normal mode */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* Added shadow for readability */
+  }
+  
+  #hero .container p {
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+    color: white; /* Added for better readability in normal mode */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7); /* Added shadow for readability */
+  }
+
+  /* Improved typed text readability */
+  #hero .typed {
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+    font-weight: 500;
+  }
+
+  /* GTA Mode Toggle Switch - Fixed position in upper left */
+  #hero .gta-mode-toggle {
+    position: absolute; /* Changed from fixed to absolute to scope to hero section */
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+  }
+  
+  #hero .gta-mode-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: scale(1.05);
+  }
+
+  #hero .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+  }
+
+  #hero .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  #hero .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  #hero .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  #hero input:checked + .slider {
+    background-color: #27ae60;
+  }
+
+  #hero input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  #hero input:focus + .slider {
+    box-shadow: 0 0 5px #27ae60;
+  }
+
+  #hero .mode-text {
+    margin-left: 10px;
+    font-size: 16px;
+    color: white;
+    text-shadow: 0 0 2px black;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  /* GTA Mode Effects - San Andreas Style */
+  #hero.gta-dark-mode {
+    background: linear-gradient(to bottom, #000000, #1a1a1a) !important;
+  }
+  
+  #hero.gta-dark-mode .container {
+    color: #ffffff !important; /* White text instead of neon green */
+  }
+  
+  #hero.gta-dark-mode h2 {
+    /* GTA San Andreas style - white text with black outline */
+    color: #ffffff;
+    text-shadow: 
+      -3px -3px 0 #000,
+      3px -3px 0 #000,
+      -3px 3px 0 #000,
+      3px 3px 0 #000,
+      0 0 8px rgba(0, 0, 0, 0.7);
+    font-family: 'Press Start 2P', cursive;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transform: scale(1.1);
+  }
+  
+  #hero.gta-dark-mode .typed {
+    /* GTA San Andreas style for typed text */
+    color: #ffffff;
+    text-shadow: 
+      -2px -2px 0 #000,
+      2px -2px 0 #000,
+      -2px 2px 0 #000,
+      2px 2px 0 #000,
+      0 0 6px rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    /* Replace pulsing with subtle scaling animation */
+    animation: gtaTextPulse 2s infinite alternate;
+  }
+  
+  /* Replace pulse animation with GTA-style scaling */
+  @keyframes gtaTextPulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+  }
+  
+  /* Add a subtle orange-yellow gradient highlight for San Andreas feel */
+  #hero.gta-dark-mode .container p {
+    background: linear-gradient(to bottom, #ffffff, #f5d76e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* Only apply gradient to the paragraph, not the typed text */
+    color: #ffffff;
+  }
+  
+  /* Darker filter for the background in GTA mode */
+  #hero.gta-dark-mode .hero-bg {
+    opacity: 0.8;
+    filter: brightness(0.6) contrast(1.3) sepia(0.3); /* More GTA-like filter */
+    transform: scale(1.30);
+  }
+  
+  /* Hide overlay in GTA mode */
+  #hero.gta-dark-mode::before {
+    opacity: 0;
+  }
+
+  /* Money Animation - Scope to hero */
+  #hero .money-rain {
+    position: absolute;
+    top: -100px;
+    width: 40px;
+    height: auto;
+    animation: moneyFall 3s linear infinite;
+    z-index: 50;
+    filter: drop-shadow(0 0 5px rgba(0, 255, 0, 0.7));
+  }
+
+  @keyframes moneyFall {
+    0% { 
+      transform: translateY(-100px) rotate(0deg) scale(1); 
+      opacity: 0; 
+    }
+    10% {
+      opacity: 1;
+    }
+    100% { 
+      transform: translateY(100vh) rotate(360deg) scale(0.5); 
+      opacity: 0; 
+    }
+  }
+  
+  /* Star Animation - Scoped to hero */
+  #hero .star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+    z-index: 5;
+  }
+  
+  @keyframes twinkle {
+    0% { opacity: 0.2; }
+    100% { opacity: 1; box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8); }
+  }
+
+  /* Accessories Container - Scoped to hero */
+  #hero #accessoriesContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  /* UPDATED: Accessories Base Styles - More responsive approach */
+  #hero .falling-item {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: opacity 0.5s ease-in-out, top 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  /* UPDATED: Specific Positions - Using viewport units for responsiveness */
+  #hero #thugLifeGlasses {
+    top: -80px;
+    /* Responsive width based on viewport width with minimum and maximum bounds */
+    width: clamp(40px, 5vw, 60px);
+    height: auto; /* Auto height to maintain aspect ratio */
+  }
+
+  /* UPDATED: Active States with Animations - Using viewport-relative positioning */
+  #hero #thugLifeGlasses.active {
+    /* Dynamic positioning that will be managed by JavaScript */
+    opacity: 1;
+    animation: bounce 0.5s ease-in-out;
+  }
+  
+  @keyframes bounce {
+    0% { transform: translateX(-50%) scale(0.5); }
+    50% { transform: translateX(-50%) scale(1.2); }
+    100% { transform: translateX(-50%) scale(1); }
+  }
+
+  /* ===== ABOUT SECTION STYLES ===== */
+  #about-text {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Tech Icons */
+  .tech-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  /* Hover Effect for all tech stacks */
+  .tech-stack:hover .tech-icon {
+    transform: scale(1.2);
+  }
+
+  /* Floating Bubbles */
+  #bubble-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .bubble {
+    position: absolute;
+    opacity: 0.8;
+    transition: opacity 4s ease-in-out;
+  }
+
+  /* Pop effect */
+  @keyframes pop {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+  }
+
+  /* Backend Development styling */
+  .backend-development {
+    font-weight: bold;
+    color: #3498db;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: linear-gradient(145deg, rgba(41, 128, 185, 0.1), rgba(52, 152, 219, 0.2));
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .backend-development span {
+    margin-right: 5px;
+  }
+
+  .backend-development:hover {
+    color: #2980b9;
+    background: linear-gradient(145deg, rgba(41, 128, 185, 0.2), rgba(52, 152, 219, 0.3));
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+  }
+
+  /* Frontend Technologies styling */
+  .frontend-technologies {
+    font-weight: bold;
+    color: #e74c3c;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: linear-gradient(145deg, rgba(231, 76, 60, 0.1), rgba(192, 57, 43, 0.2));
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .frontend-technologies span {
+    margin-right: 5px;
+  }
+
+  .frontend-technologies:hover {
+    color: #c0392b;
+    background: linear-gradient(145deg, rgba(231, 76, 60, 0.2), rgba(192, 57, 43, 0.3));
+    box-shadow: 0 0 8px rgba(231, 76, 60, 0.5);
+  }
+
+  /* Additional backend icons for bubbles */
+  .backend-bubble-icons {
+    display: none;
+  }
+
+  /* Additional frontend icons for bubbles */
+  .frontend-bubble-icons {
+    display: none;
+  }
+  
+  /* Section spacing adjustments */
+  #about {
+    margin-bottom: 0;
+    padding-bottom: 20px; /* Reduced padding */
+  }
+
+  /* ===== SKILLS SECTION STYLES ===== */
+  .skills-section {
+    padding: 60px 0; /* Increased padding from 40px to 60px */
+    background-color: #f8f9fa;
+  }
+  
+  .skills-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .skills-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .skills-header h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+  }
+  
+  .skills-header p {
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .skills-rows-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .skills-rows-container:hover .skills-row {
+    animation-play-state: paused;
+  }
+  
+  .skills-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    white-space: nowrap;
+  }
+  
+  .row-1 {
+    animation: scroll-left 25s linear infinite;
+  }
+  
+  .row-2 {
+    animation: scroll-right 25s linear infinite;
+  }
+  
+  .skill-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    font-weight: 600;
+    color: white;
+    transition: transform 0.2s ease;
+  }
+  
+  .skill-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .skill-item img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  @keyframes scroll-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
+  @keyframes scroll-right {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  /* ===== SERVICES SECTION STYLES ===== */
+  #services {
+    padding: 60px 0; /* Increased padding from 40px to 60px */
+    background-color: #fff;
+  }
+
+  .service-item {
+    margin-bottom: 20px;
+  }
+
+  .service-item .icon {
+    margin-right: 15px;
+    font-size: 24px;
+    color: #3498db;
+  }
+
+  .service-item h4 {
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .service-item p {
+    color: #6c757d;
+    margin-bottom: 0;
+  }
+  
+  /* ===== RESUME SECTION STYLES ===== */
+  .resume {
+    padding: 60px 0 40px; /* Adjusted padding to 60px top and 40px bottom */
+    background-color: #f8f9fa;
+  }
+  
+  .resume-timeline {
+    position: relative;
+    margin-top: 20px; /* Reduced from 30px to 20px */
+  }
+  
+  .timeline-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    background-color: #e9ecef;
+    border-radius: 50px;
+    padding: 5px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .timeline-header-item {
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    color: #495057;
+  }
+  
+  .timeline-header-item i {
+    margin-right: 8px;
+  }
+  
+  .timeline-header-item.active {
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+  }
+  
+  .timeline-section {
+    display: none;
+    position: relative;
+  }
+  
+  .timeline-section.active {
+    display: block;
+  }
+  
+  .timeline-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    width: 2px;
+    background-color: #e9ecef;
+  }
+  
+  .timeline-item {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 30px;
+  }
+  
+  .timeline-marker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background-color: #3498db;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    z-index: 1;
+  }
+  
+  .timeline-content {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .timeline-date {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: #e9ecef;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #495057;
+    margin-bottom: 10px;
+  }
+  
+  .timeline-title {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .timeline-company {
+    color: #3498db;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  
+  .timeline-description ul {
+    padding-left: 20px;
+  }
+  
+  .timeline-description ul li {
+    margin-bottom: 5px;
+  }
+  
+  .education-highlights {
+    margin-top: 15px;
+  }
+  
+  .education-highlights .badge {
+    background-color: #e9ecef;
+    color: #495057;
+    font-weight: 500;
+    padding: 5px 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+  }
+  
+  .resume-download-btn {
+    padding: 12px 30px;
+    font-weight: 500;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border: none;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+    margin-top: 20px; /* Reduced from 5 */
+  }
+  
+  .resume-download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+  }
+  
+  /* ===== PORTFOLIO SECTION STYLES ===== */
+  .portfolio {
+    padding: 60px 0; /* Increased padding from 40px to 60px */
+    background-color: #fff;
+    margin-top: 20px; /* Added space between resume and portfolio */
+  }
+  
+  .filters-list {
+    display: inline-flex;
+    list-style: none;
+    padding: 5px;
+    margin: 0 0 30px 0;
+    background-color: #e9ecef;
+    border-radius: 50px;
+  }
+  
+  .filters-list li {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #495057;
+  }
+  
+  .filters-list li.filter-active {
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+  }
+  
+  .portfolio-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease; /* Increased transition duration */
+    height: 100%;
+    background-color: white;
+    cursor: pointer;
+    transform: translateY(0); /* Initial state for animation */
+  }
+  
+  .portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .portfolio-item {
+    transition: all 0.5s ease; /* Transition for portfolio items */
+    backface-visibility: hidden; /* Prevents flickering */
+  }
+  
+  .portfolio-img {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .portfolio-img img {
+    transition: transform 0.8s ease; /* Increased transition duration */
+  }
+  
+  .portfolio-card:hover .portfolio-img img {
+    transform: scale(1.1);
+  }
+  
+  .portfolio-info {
+    padding: 20px;
+    transition: all 0.3s ease; /* Added transition */
+  }
+  
+  .portfolio-info h4 {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+    transition: color 0.3s ease; /* Added transition */
+  }
+  
+  .portfolio-info p {
+    color: #6c757d;
+    margin-bottom: 10px;
+    transition: color 0.3s ease; /* Added transition */
+  }
+  
+  .portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .portfolio-tags .tag {
+    padding: 3px 10px;
+    background-color: #e9ecef;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: #495057;
+    transition: all 0.3s ease; /* Added transition */
+  }
+  
+  .portfolio-card:hover .portfolio-tags .tag {
+    background-color: #e0e0e0; /* Subtle change on hover */
+  }
+  
+  /* ===== CONTACT SECTION STYLES ===== */
+  .contact {
+    padding: 60px 0; /* Increased padding from 40px to 60px */
+    background-color: #f8f9fa;
+  }
+  
+  .contact-info-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 100%;
+  }
+  
+  .contact-info-header {
+    padding: 30px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+  }
+  
+  .contact-info-header h3 {
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  .contact-info-item {
+    display: flex;
+    padding: 20px 30px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(52, 152, 219, 0.1);
+    border-radius: 10px;
+    margin-right: 15px;
+    color: #3498db;
+    font-size: 1.2rem;
+  }
+  
+  .contact-info-item .content h5 {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .contact-info-item .content p {
+    margin: 0;
+    color: #6c757d;
+  }
+  
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
+  }
+  
+  .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #e9ecef;
+    border-radius: 50%;
+    color: #495057;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    background-color: #3498db;
+    color: white;
+    transform: scale(1.1);
+  }
+  
+  .map-container {
+    height: 250px;
+    overflow: hidden;
+  }
+  
+  .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  
+  .contact-form-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 100%;
+  }
+  
+  .contact-form-header {
+    padding: 30px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+  }
+  
+  .contact-form-header h3 {
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  .contact-form {
+    padding: 30px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #495057;
+  }
+  
+  .input-group {
+    position: relative;
+    display: flex;
+  }
+  
+  .input-group-text {
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    color: #495057;
+  }
+  
+  .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 0 5px 5px 0;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    font-weight: 500;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    border: none;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.4);
+  }
+  
+  #status-message {
+    margin-bottom: 15px;
+  }
+
+  .section-title h2 {
+    position: relative;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+  }
+  
+  .section-title h2::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* ===== GAMING MODE STYLES ===== */
+  body.gaming-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  body.gaming-mode .section {
+    background-color: #1a1a1a;
+    border: 2px solid #444;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  }
+
+  body.gaming-mode .section-title h2 {
+    color: #00ff00;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+  }
+
+  body.gaming-mode .section-title h2::after {
+    background: linear-gradient(90deg, #00ff00, #00aa00);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+  }
+
+  body.gaming-mode .about-content,
+  body.gaming-mode .skill-card,
+  body.gaming-mode .expertise-item,
+  body.gaming-mode .timeline-content,
+  body.gaming-mode .portfolio-card,
+  body.gaming-mode .contact-info-card,
+  body.gaming-mode .contact-form-card {
+    background-color: #222;
+    border: 1px solid #444;
+    color: #e0e0e0;
+  }
+
+  body.gaming-mode .skill-highlight {
+    background-color: #333;
+  }
+
+  body.gaming-mode .skill-highlight:hover {
+    background-color: #444;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+  }
+
+  body.gaming-mode .expertise-icon,
+  body.gaming-mode .timeline-marker {
+    background: linear-gradient(135deg, #00aa00, #00ff00);
+  }
+
+  body.gaming-mode .progress-bar {
+    background: linear-gradient(90deg, #00ff00, #00aa00);
+  }
+
+  /* RPG Elements */
+  .rpg-stats-bar {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    padding: 15px;
+    z-index: 1000;
+    width: 250px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  }
+
+  body.gaming-mode .rpg-stats-bar {
+    display: block;
+  }
+
+  .rpg-stat {
+    margin-bottom: 10px;
+  }
+
+  .rpg-stat-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #e0e0e0;
+  }
+
+  .rpg-stat-bar {
+    height: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .rpg-stat-fill {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.5s ease;
+  }
+
+  .rpg-health .rpg-stat-fill {
+    background: linear-gradient(90deg, #ff0000, #ff5555);
+  }
+
+  .rpg-mana .rpg-stat-fill {
+    background: linear-gradient(90deg, #0055ff, #00aaff);
+  }
+
+  .rpg-exp .rpg-stat-fill {
+    background: linear-gradient(90deg, #ffaa00, #ffff00);
+  }
+
+  .rpg-level {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00ff00;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+  }
+
+  /* Floating damage numbers */
+  .damage-number {
+    position: absolute;
+    font-family: 'Press Start 2P', cursive;
+    color: #ff0000;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #000;
+    pointer-events: none;
+    animation: floatUp 1.5s forwards;
+    z-index: 9999;
+  }
+
+  @keyframes floatUp {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+  }
+
+  /* Quest notification */
+  .quest-notification {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #ffaa00;
+    border-radius: 10px;
+    padding: 15px 20px;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(255, 170, 0, 0.5);
+    max-width: 80%;
+    text-align: center;
+  }
+
+  body.gaming-mode .quest-notification {
+    display: block;
+    animation: questAppear 0.5s forwards, questDisappear 0.5s 5s forwards;
+  }
+
+  @keyframes questAppear {
+    from {
+      opacity: 0;
+      transform: translate(-50%, 50px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  @keyframes questDisappear {
+    from {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    to {
+      opacity: 0;
+      transform: translate(-50%, 50px);
+    }
+  }
+
+  /* Cursor */
+  body.gaming-mode {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2300ff00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>'), auto;
+  }
+</style>
 </head>
 
 <body class="index-page">
 
-  <header id="header" class="header dark-background d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+<header id="header" class="header dark-background d-flex flex-column align-items-center text-center">  
+  <i class="header-toggle d-xl-none bi bi-list"></i>
 
+  <div class="profile-img-container">
     <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle">
+      <img src="assets/img/my-profile-img.jpg" alt="" class="img-fluid rounded-circle static-img">
+      <img src="assets/img/ez.gif" alt="" class="img-fluid rounded-circle gif-overlay">
+    </div>
+  </div>
+
+  <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+    <h1 class="sitename">Patrick Perez</h1>
+  </a>
+
+  <div class="social-links text-center">
+    <a href="https://www.facebook.com/pat.flores.339" class="facebook"><i class="bi bi-facebook"></i></a>
+    <a href="https://github.com/pat1322" class="github"><i class="bi bi-github"></i></a>
+    <a href="https://www.linkedin.com/in/patrickp2025/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+  </div>
+
+  <nav id="navmenu" class="navmenu">
+    <ul>
+      <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
+      <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
+      <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Summary of Work</a></li>
+      <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Professional Journey</a></li>
+      <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio Showcase</a></li>
+      <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Get In Touch</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- RPG Stats Bar (Hidden by default, shown in gaming mode) -->
+<div class="rpg-stats-bar">
+  <div class="rpg-level">Level 25</div>
+  <div class="rpg-stat rpg-health">
+    <div class="rpg-stat-label">
+      <span>HP</span>
+      <span>750/750</span>
+    </div>
+    <div class="rpg-stat-bar">
+      <div class="rpg-stat-fill" style="width: 100%;"></div>
+    </div>
+  </div>
+  <div class="rpg-stat rpg-mana">
+    <div class="rpg-stat-label">
+      <span>MP</span>
+      <span>450/450</span>
+    </div>
+    <div class="rpg-stat-bar">
+      <div class="rpg-stat-fill" style="width: 100%;"></div>
+    </div>
+  </div>
+  <div class="rpg-stat rpg-exp">
+    <div class="rpg-stat-label">
+      <span>EXP</span>
+      <span>7,540/10,000</span>
+    </div>
+    <div class="rpg-stat-bar">
+      <div class="rpg-stat-fill" style="width: 75%;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Quest Notification -->
+<div class="quest-notification">
+  NEW QUEST: "Master of Code" - Explore all sections of the portfolio to unlock special abilities!
+</div>
+
+<main class="main">
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero section dark-background">
+    <img src="assets/img/hero-bg.jpg" alt="Background" data-aos="fade-in" class="hero-bg">
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <h2>Patrick Perez</h2>
+      <p>
+        I'm a 
+        <span id="typed-text" class="typed"></span>
+      </p>
     </div>
 
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <h1 class="sitename">Patrick Perez</h1>
-    </a>
-
-    <div class="social-links text-center">
-      <a href="https://www.facebook.com/pat.flores.339" class="facebook"><i class="bi bi-facebook"></i></a>
-      <a href="https://github.com/pat1322" class="github"><i class="bi bi-github"></i></a>
-      <a href="https://www.linkedin.com/in/patrickp2025/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    <!-- GTA Mode Switch - Positioned in upper left -->
+    <div class="gta-mode-toggle">
+      <label class="switch">
+        <input type="checkbox" id="gtaToggle">
+        <span class="slider"></span>
+      </label>
+      <span class="mode-text">Dev Mode</span>
     </div>
 
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-		<li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Summary of Work</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
-      </ul>
-    </nav>
+    <!-- Accessories Container -->
+    <div id="accessoriesContainer">
+      <img id="thugLifeGlasses" src="assets/img/thug-life-glasses.png" class="falling-item" alt="Thug Life Glasses">
+    </div>
+    
+    <!-- Sound Effects -->
+    <audio id="gtaThemeMusic" src="assets/sounds/gta-theme.mp3" preload="auto"></audio>
+    <audio id="toggleSound" src="assets/sounds/toggle.mp3" preload="auto"></audio>
+  </section>
 
-  </header>
+  <!-- About Section -->
+  <section id="about" class="about section">
+    <div class="section-title text-center" data-aos="fade-up">
+      <h2>About</h2>
 
-  <main class="main">
+      <p id="about-text">
+        I am a results-driven Software Engineer with expertise in 
+        <a href="#backend" class="tech-stack backend-development" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
+          <span>backend development</span>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="tech-icon" alt="Backend">
+        </a> and a strong foundation in
+        <a href="https://en.wikipedia.org/wiki/C_(programming_language)" target="_blank" class="tech-stack" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" class="tech-icon" alt="C">
+        </a>,
+        <a href="https://en.wikipedia.org/wiki/C%2B%2B" target="_blank" class="tech-stack" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="tech-icon" alt="C++">
+        </a>,
+        <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank" class="tech-stack" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="tech-icon" alt="Python">
+        </a>, and
+        <a href="https://en.wikipedia.org/wiki/Java_(programming_language)" target="_blank" class="tech-stack" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="tech-icon" alt="Java">
+        </a>, as well as 
+        <a href="#frontend" class="tech-stack frontend-technologies" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
+          <span>frontend technologies</span>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="tech-icon" alt="Frontend">
+        </a> like
+        <a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank" class="tech-stack" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="tech-icon" alt="JavaScript">
+        </a>,
+        <a href="https://en.wikipedia.org/wiki/HTML" target="_blank" class="tech-stack" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="tech-icon" alt="HTML">
+        </a>, and
+        <a href="https://en.wikipedia.org/wiki/CSS" target="_blank" class="tech-stack" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="tech-icon" alt="CSS">
+        </a>.
+        I specialize in building efficient, scalable, and high-performance applications, with experience in databases, 
+        system optimization, and problem-solving. I am currently focused on mastering
+        <a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)" target="_blank" class="tech-stack" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" class="tech-icon" alt="C#">
+        </a> to expand my skill set and take on new challenges in software development.
+      </p>
+    </div>
+  </section>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
+  <!-- Floating Bubbles Container -->
+  <div id="bubble-container"></div>
 
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
+  <!-- Hidden containers for additional icons -->
+  <div class="backend-bubble-icons">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" alt="Nginx">
+  </div>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Patrick Perez</h2>
-        <p>I'm a <span class="typed" data-typed-items=" Software Engineer, Developer, Programmer, Data Analyst">Software Engineer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+  <div class="frontend-bubble-icons">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue.js">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" alt="Sass">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" alt="Tailwind">
+  </div>
+
+  <!-- Skills Section -->
+  <section class="skills-section">
+    <div class="skills-container">
+      <div class="skills-header">
+        <h2>Skills</h2>
+        <p>A showcase of my professional and technical expertise.</p>
       </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>I am a results-driven Software Engineer with expertise in backend development and a strong foundation in C, C++, Python, and Java, as well as frontend technologies like Javascript, HTML, and CSS. I specialize in building efficient, scalable, and high-performance applications, with experience in databases, system optimization, and problem-solving.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <img src="assets/img/my-profile-img.jpg" class="img-fluid" alt="">
+      
+      <div class="skills-rows-container">
+        <div class="skills-row row-1">
+          <div class="skill-item" style="background-color: #00599c;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="">C
           </div>
-          <div class="col-lg-8 content">
-            <h2>Software Engineer | Fullstack Developer.</h2>
-            <p class="fst-italic py-3">
-              I have been working for 2+ years focusing on developing and maintaining core banking applications.
-              You could check some of my personal information below.
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>13 January 2000</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Linkedin:</strong> <span>linkedin.com/in/patrickp2025</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+63 966 9931 667</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Address:</strong> <span>Baliuag, Bulacan, PH</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>25</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>BS Computer Engineering</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>parickperez1322@gmail.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Status:</strong> <span>Single</span></li>
-                </ul>
-              </div>
-            </div>
-            <p class="py-3">
-              With a keen eye for detail and a commitment to continuous learning, I aim to create innovative solutions that drive business success. 
-			  I am currently focused on mastering C# to expand my skill set and take on new challenges in software development.
-            </p>
+          <div class="skill-item" style="background-color: #004482;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="">C++
+          </div>
+          <div class="skill-item" style="background-color: #306998;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="">Python
+          </div>
+          <div class="skill-item" style="background-color: #00758f;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="">SQL
+          </div>
+          <div class="skill-item" style="background-color: #f89820;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="">Java
+          </div>
+          <div class="skill-item" style="background-color: #2496ed;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="">Docker
+          </div>
+          <div class="skill-item" style="background-color: #f34f29;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="">Git
+          </div>
+          <!-- Duplicate items for seamless loop -->
+          <div class="skill-item" style="background-color: #00599c;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="">C
+          </div>
+          <div class="skill-item" style="background-color: #004482;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="">C++
+          </div>
+          <div class="skill-item" style="background-color: #306998;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="">Python
+          </div>
+          <div class="skill-item" style="background-color: #00758f;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="">SQL
+          </div>
+          <div class="skill-item" style="background-color: #f89820;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="">Java
+          </div>
+          <div class="skill-item" style="background-color: #2496ed;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="">Docker
+          </div>
+          <div class="skill-item" style="background-color: #f34f29;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="">Git
           </div>
         </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-	<!-- Skills Section -->
-	<section class="skills-section">
-	  <div class="skills-container">
-		<div class="skills-header">
-		  <h2>Skills</h2>
-		  <p>A showcase of my professional and technical expertise.</p>
-		</div>
-		
-		<div class="skills-rows-container">
-		  <div class="skills-row row-1">
-			<div class="skill-item" style="background-color: #00599c;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="">C
-			</div>
-			<div class="skill-item" style="background-color: #004482;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="">C++
-			</div>
-			<div class="skill-item" style="background-color: #306998;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="">Python
-			</div>
-			<div class="skill-item" style="background-color: #00758f;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="">SQL
-			</div>
-			<div class="skill-item" style="background-color: #f89820;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="">Java
-			</div>
-			<div class="skill-item" style="background-color: #2496ed;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="">Docker
-			</div>
-			<div class="skill-item" style="background-color: #f34f29;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="">Git
-			</div>
-			<!-- Duplicate items for seamless loop -->
-			<div class="skill-item" style="background-color: #00599c;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="">C
-			</div>
-			<div class="skill-item" style="background-color: #004482;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="">C++
-			</div>
-			<div class="skill-item" style="background-color: #306998;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="">Python
-			</div>
-			<div class="skill-item" style="background-color: #00758f;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="">SQL
-			</div>
-			<div class="skill-item" style="background-color: #f89820;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="">Java
-			</div>
-			<div class="skill-item" style="background-color: #2496ed;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="">Docker
-			</div>
-			<div class="skill-item" style="background-color: #f34f29;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="">Git
-			</div>
-		  </div>
-		  
-		  <div class="skills-row row-2">
-			<div class="skill-item" style="background-color: #e34c26;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="">HTML
-			</div>
-			<div class="skill-item" style="background-color: #264de4;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="">CSS
-			</div>
-			<div class="skill-item" style="background-color: #f7df1e; color: black;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="">JavaScript
-			</div>
-			<div class="skill-item" style="background-color: #68217a;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="">C#
-			</div>
-			<div class="skill-item" style="background-color: #5c2d91;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="">Visual Basic
-			</div>
-			<div class="skill-item" style="background-color: #6db33f;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="">Spring
-			</div>
-			<div class="skill-item" style="background-color: #563d7c;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="">Bootstrap
-			</div>
-			<!-- Duplicate items for seamless loop -->
-			<div class="skill-item" style="background-color: #e34c26;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="">HTML
-			</div>
-			<div class="skill-item" style="background-color: #264de4;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="">CSS
-			</div>
-			<div class="skill-item" style="background-color: #f7df1e; color: black;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="">JavaScript
-			</div>
-			<div class="skill-item" style="background-color: #68217a;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="">C#
-			</div>
-			<div class="skill-item" style="background-color: #5c2d91;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="">Visual Basic
-			</div>
-			<div class="skill-item" style="background-color: #6db33f;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="">Spring
-			</div>
-			<div class="skill-item" style="background-color: #563d7c;">
-			  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="">Bootstrap
-			</div>
-		  </div>
-		</div>
-	  </div>
-	</section>
-
-	<style>
-	  .skills-section {
-		padding: 4rem 1rem;
-		overflow: hidden;
-		font-family: Arial, sans-serif;
-	  }
-	  
-	  .skills-container {
-		max-width: 1200px;
-		margin: 0 auto;
-	  }
-	  
-	  .skills-header {
-		text-align: center;
-		margin-bottom: 3rem;
-	  }
-	  
-	  .skills-header h2 {
-		font-size: 2rem;
-		font-weight: bold;
-		margin-bottom: 0.75rem;
-	  }
-	  
-	  .skills-header p {
-		color: #666;
-		max-width: 600px;
-		margin: 0 auto;
-	  }
-	  
-	  .skills-rows-container {
-		position: relative;
-		overflow: hidden;
-	  }
-	  
-	  .skills-rows-container:hover .skills-row {
-		animation-play-state: paused;
-	  }
-	  
-	  .skills-row {
-		display: flex;
-		gap: 1rem;
-		margin-bottom: 1.5rem;
-		white-space: nowrap;
-	  }
-	  
-	  .row-1 {
-		animation: scroll-left 25s linear infinite;
-	  }
-	  
-	  .row-2 {
-		animation: scroll-right 25s linear infinite;
-	  }
-	  
-	  .skill-item {
-		display: flex;
-		align-items: center;
-		padding: 0.75rem 1.25rem;
-		border-radius: 50px;
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-		font-weight: 600;
-		color: white;
-		transition: transform 0.2s ease;
-	  }
-	  
-	  .skill-item:hover {
-		transform: scale(1.05);
-	  }
-	  
-	  .skill-item img {
-		width: 1.5rem;
-		height: 1.5rem;
-		margin-right: 0.5rem;
-	  }
-	  
-	  @keyframes scroll-left {
-		from {
-		  transform: translateX(0);
-		}
-		to {
-		  transform: translateX(-50%);
-		}
-	  }
-	  
-	  @keyframes scroll-right {
-		from {
-		  transform: translateX(-50%);
-		}
-		to {
-		  transform: translateX(0);
-		}
-	  }
-	  
-	  /* Responsive adjustments */
-	  @media (max-width: 768px) {
-		.skills-section {
-		  padding: 3rem 0.75rem;
-		}
-		
-		.skills-header h2 {
-		  font-size: 1.75rem;
-		}
-		
-		.skill-item {
-		  padding: 0.5rem 1rem;
-		  font-size: 0.9rem;
-		}
-		
-		.skill-item img {
-		  width: 1.25rem;
-		  height: 1.25rem;
-		}
-	  }
-	</style><!-- /Skills Section -->
-
-	<!-- Services Section -->
-	<section id="services" class="services section">
-
-	  <!-- Section Title -->
-	  <div class="container section-title" data-aos="fade-up">
-		<h2>Summary of Work</h2>
-		<p>Providing high-quality software development and technical solutions, specializing in backend development, database management, and web technologies. Offering services that ensure efficient, scalable, and well-optimized applications.</p>
-	  </div><!-- End Section Title -->
-
-	  <div class="container">
-
-		<div class="row gy-4">
-
-		  <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-			<div class="icon flex-shrink-0"><i class="bi bi-code-slash"></i></div>
-			<div>
-			  <h4 class="title"><a href="#" class="stretched-link">Backend Development</a></h4>
-			  <p class="description">Building efficient, scalable, and high-performance backend systems using C, C++, Python, and SQL databases.</p>
-			</div>
-		  </div><!-- End Service Item -->
-
-		  <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-			<div class="icon flex-shrink-0"><i class="bi bi-database"></i></div>
-			<div>
-			  <h4 class="title"><a href="#" class="stretched-link">Database Optimization</a></h4>
-			  <p class="description">Designing and optimizing database structures, improving query performance, and ensuring data integrity using Informix SQL, MySQL, and PostgreSQL.</p>
-			</div>
-		  </div><!-- End Service Item -->
-
-		  <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-			<div class="icon flex-shrink-0"><i class="bi bi-globe"></i></div>
-			<div>
-			  <h4 class="title"><a href="#" class="stretched-link">Web Development</a></h4>
-			  <p class="description">Creating responsive and dynamic websites using HTML, CSS, JavaScript, and backend integrations with Python or C#.</p>
-			</div>
-		  </div><!-- End Service Item -->
-
-		  <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-			<div class="icon flex-shrink-0"><i class="bi bi-file-code"></i></div>
-			<div>
-			  <h4 class="title"><a href="#" class="stretched-link">Software Debugging & Optimization</a></h4>
-			  <p class="description">Identifying and fixing software bugs, memory leaks, and performance bottlenecks to enhance application stability and speed.</p>
-			</div>
-		  </div><!-- End Service Item -->
-
-		  <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-			<div class="icon flex-shrink-0"><i class="bi bi-diagram-3"></i></div>
-			<div>
-			  <h4 class="title"><a href="#" class="stretched-link">System Integration</a></h4>
-			  <p class="description">Integrating APIs, third-party services, and legacy systems into modern applications to improve functionality and data flow.</p>
-			</div>
-		  </div><!-- End Service Item -->
-
-		  <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-			<div class="icon flex-shrink-0"><i class="bi bi-graph-up"></i></div>
-			<div>
-			  <h4 class="title"><a href="#" class="stretched-link">Algorithm & Data Structure Consulting</a></h4>
-			  <p class="description">Providing optimized solutions for complex problems using efficient algorithms and data structures to enhance software performance.</p>
-			</div>
-		  </div><!-- End Service Item -->
-
-		</div>
-
-	  </div>
-
-	</section><!-- /Services Section -->
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="101" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Dedication</strong> <span>Bringing 101% energy and enthusiasm to every project.</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="35" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects Completed</strong> <span>Successfully developed and deployed over 35 projects.</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="200" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Production Support</strong> <span>Resolved 200+ technical issues and provided seamless support.</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Professional Connections</strong> <span>Built a strong network of over 25 industry professionals.</span></p>
-            </div>
-          </div><!-- End Stats Item -->
-
+        
+        <div class="skills-row row-2">
+          <div class="skill-item" style="background-color: #e34c26;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="">HTML
+          </div>
+          <div class="skill-item" style="background-color: #264de4;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="">CSS
+          </div>
+          <div class="skill-item" style="background-color: #f7df1e; color: black;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="">JavaScript
+          </div>
+          <div class="skill-item" style="background-color: #68217a;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="">C#
+          </div>
+          <div class="skill-item" style="background-color: #5c2d91;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="">Visual Basic
+          </div>
+          <div class="skill-item" style="background-color: #6db33f;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="">Spring
+          </div>
+          <div class="skill-item" style="background-color: #563d7c;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="">Bootstrap
+          </div>
+          <!-- Duplicate items for seamless loop -->
+          <div class="skill-item" style="background-color: #e34c26;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="">HTML
+          </div>
+          <div class="skill-item" style="background-color: #264de4;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="">CSS
+          </div>
+          <div class="skill-item" style="background-color: #f7df1e; color: black;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="">JavaScript
+          </div>
+          <div class="skill-item" style="background-color: #68217a;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="">C#
+          </div>
+          <div class="skill-item" style="background-color: #5c2d91;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="">Visual Basic
+          </div>
+          <div class="skill-item" style="background-color: #6db33f;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="">Spring
+          </div>
+          <div class="skill-item" style="background-color: #563d7c;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="">Bootstrap
+          </div>
         </div>
-
       </div>
+    </div>
+  </section>
 
-    </section><!-- /Stats Section -->
-
-	<!-- Resume Section -->
-	<section id="resume" class="resume section">
-
-	  <!-- Section Title -->
-	  <div class="container section-title" data-aos="fade-up">
-		<h2>Resume</h2>
-		<p>A highly motivated and detail-oriented software engineer with experience in backend development, database management, and web technologies. Skilled in C, C++, Python, and SQL, with a focus on developing efficient and scalable applications.</p>
-	  </div><!-- End Section Title -->
-
-	  <div class="container">
-
-		<div class="row">
-
-		  <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-			<h3 class="resume-title">Summary</h3>
-
-			<div class="resume-item pb-0">
-			  <h4>Patrick Perez</h4>
-			  <p><em>Software Engineer with experience in backend development, database management, and web development. Excited in solving complex problems and optimizing system performance.</em></p>
-			  <ul>
-				<li>Manila, Philippines</li>
-				<li>+639669931667</li>
-				<li>patrickperez1322@gmail.com</li>
-			  </ul>
-			</div><!-- End Resume Item -->
-
-			<h3 class="resume-title">Education</h3>
-			<div class="resume-item">
-			  <h4>Bachelor's Degree in Computer Engineering</h4>
-			  <h5>2018 - 2022</h5>
-			  <p><em>Bulacan State University, Malolos Bulacan</em></p>
-			  <p>Focused on software development, algorithms, and database management. Developed projects involving C, C++, Java, and Python.</p>
-			</div><!-- End Resume Item -->
-			<div class="resume-item">
-			  <h4>STEM Graduate</h4>
-			  <h5>2016 - 2018</h5>
-			  <p><em>Baliuag University, Baliuag Bulacan</em></p>
-			  <p>Emphasized on engineering subjects to pave way for future endevours.</p>
-			</div><!-- End Resume Item -->			
-
-		  </div>
-
-		  <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-			<h3 class="resume-title">Professional Experience</h3>
-			<div class="resume-item">
-			  <h4>Software Engineer | Fullstack Developer</h4>
-			  <h5>Dec 2022 - Present</h5>
-			  <p><em>Asia United Bank, Manila, Philippines</em></p>
-			  <ul>
-				<li>Developed and maintained backend applications using C and C++ for banking operations and Java for frontend applications.</li>
-				<li>Worked on web and batch processing applications.</li>
-				<li>Performed database operations using **Informix SQL**, ensuring efficient data retrieval and updates.</li>
-				<li>Debugged and optimized existing applications to improve performance and resolve overflow issues.</li>
-				<li>Collaborated with teams to ensure smooth integration of financial systems.</li>
-			  </ul>
-			</div><!-- End Resume Item -->
-
-			<div class="resume-item">
-			  <h4>Mobile App Developer (Internship)</h4>
-			  <h5>August 2021 - October 2021</h5>
-			  <p><em>BCN Montjuic Tourist Point, Barcelona, Spain</em></p>
-			  <ul>
-				<li>Developed and maintained internal tools using Java.</li>
-				<li>Worked on small-scale web development projects involving **JavaScript, HTML, and CSS**.</li>
-				<li>Lead the team on frontend and backend development tasks.</li>
-				<li>Collaborated with team on debugging and optimizing the mobile app.</li>
-			  </ul>
-			</div><!-- End Resume Item -->
-
-		  </div>
-
-		</div>
-
-		<!-- Download Resume Button -->
-		<div class="text-center mt-4" data-aos="zoom-in" data-aos-delay="300">
-		  <a href="https://drive.google.com/file/d/1tG2S8zHvNl2QLNmngB1pAGla9icp8hxh/view?usp=sharing" download class="btn btn-primary">Download Resume</a>
-		</div>
-
-	  </div>
-
-	</section><!-- /Resume Section -->
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>A showcase of my work, highlighting projects that demonstrate my expertise in software development, backend engineering, and system optimization. From building efficient database-driven applications to solving complex programming challenges, my portfolio reflects my dedication for creating high-quality solutions. Explore my work and see how I bring ideas to life through code.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-mobapp">Mobile App</li>
-            <li data-filter=".filter-webapp">Web App</li>
-            <li data-filter=".filter-windows">MicroController & Console</li>
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-mobapp">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-1.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>BCN MTP mobile</h4>
-                  <p>App made for BCN Montjuic Tourist Point Inc</p>
-                  <a href="assets/img/portfolio/app-1.png" title="BCN MTP mobile" data-gallery="portfolio-gallery-mobapp" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="BCN-MTP-mobile.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-webapp">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-1.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>EcoEye AI</h4>
-                  <p>Use to identify plants and animals</p>
-                  <a href="assets/img/portfolio/product-1.png" title="EcoEye AI" data-gallery="portfolio-gallery-webapp" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="EcoEye-AI.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-windows">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-1.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Olfactory Machine UTI Detector</h4>
-                  <p>Made from Gas Sensors and Rpi</p>
-                  <a href="assets/img/portfolio/branding-1.png" title="Olfactory Machine UTI Detector" data-gallery="portfolio-gallery-windows" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="Olfactory-Machine-UTI-Detector.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-mobapp">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-2.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Super Mega Scatter</h4>
-                  <p>App made for fun</p>
-                  <a href="assets/img/portfolio/app-2.png" title="Super Mega Scatter" data-gallery="portfolio-gallery-mobapp" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="Super-Mega-Scatter.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-webapp">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-2.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Titan Trade</h4>
-                  <p>Personal dropshipping website</p>
-                  <a href="assets/img/portfolio/product-2.png" title="Titan Trade" data-gallery="portfolio-gallery-webapp" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="Titan-Trade.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-windows">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-2.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Smart Dustbin</h4>
-                  <p>Smart Dustbin using Arduino</p>
-                  <a href="assets/img/portfolio/branding-2.png" title="Smart Dustbin" data-gallery="portfolio-gallery-windows" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="Smart-Dustbin.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-mobapp">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/app-3.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Lotto AI</h4>
-                  <p>Use to generate lottery numbers</p>
-                  <a href="assets/img/portfolio/app-3.png" title="Lotto AI" data-gallery="portfolio-gallery-mobapp" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="Lotto-AI.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-webapp">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/product-3.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Djared Web Design</h4>
-                  <p>A community project</p>
-                  <a href="assets/img/portfolio/product-3.png" title="Djared Web Design" data-gallery="portfolio-gallery-webapp" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="Djared-Web-Design.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-windows">
-              <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/branding-3.png" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Functions in Python</h4>
-                  <p>Program made using Python</p>
-                  <a href="assets/img/portfolio/branding-3.png" title="Functions in Python" data-gallery="portfolio-gallery-windows" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="Functions-in-Python.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Container -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-	<!-- Contact Section -->
-	<section id="contact" class="contact section">
-
-	  <!-- Section Title -->
-	  <div class="container section-title" data-aos="fade-up">
-		<h2>Contact</h2>
-		<p>Feel free to contact me with the details I had provided below. I would try to respond as soon as possible.</p>
-	  </div><!-- End Section Title -->
-
-	  <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-		<div class="row gy-4">
-
-		  <div class="col-lg-5">
-			<div class="info-wrap">
-			  <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-				<i class="bi bi-geo-alt flex-shrink-0"></i>
-				<div>
-				  <h3>Address</h3>
-				  <p>Pinagbarilan, Baliuag, Bulacan</p>
-				</div>
-			  </div><!-- End Info Item -->
-
-			  <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-				<i class="bi bi-telephone flex-shrink-0"></i>
-				<div>
-				  <h3>Phone Number</h3>
-				  <p>+63 966 9931 667</p>
-				</div>
-			  </div><!-- End Info Item -->
-
-			  <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-				<i class="bi bi-envelope flex-shrink-0"></i>
-				<div>
-				  <h3>Email Address</h3>
-				  <p>patrickperez1322@gmail.com</p>
-				</div>
-			  </div><!-- End Info Item -->
-
-			  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3854.752559834969!2d120.88352019999998!3d14.950872800000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396555a0daef5f9%3A0x7d434bb5a87853a7!2sAmore%20Apartelle!5e0!3m2!1sen!2sph!4v1741576978028!5m2!1sen!2sph" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-			</div>
-		  </div>
-
-		  <div class="col-lg-7">
-			<form id="contact-form" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-			  <div class="row gy-4">
-
-				<div class="col-md-6">
-				  <label for="name-field" class="pb-2">Your Name</label>
-				  <input type="text" id="name-field" class="form-control" required>
-				</div>
-
-				<div class="col-md-6">
-				  <label for="email-field" class="pb-2">Your Email</label>
-				  <input type="email" id="email-field" class="form-control" required>
-				</div>
-
-				<div class="col-md-12">
-				  <label for="subject-field" class="pb-2">Subject</label>
-				  <input type="text" id="subject-field" class="form-control" required>
-				</div>
-
-				<div class="col-md-12">
-				  <label for="message-field" class="pb-2">Message</label>
-				  <textarea id="message-field" class="form-control" rows="10" required></textarea>
-				</div>
-
-				<div class="col-md-12 text-center">
-				  <div id="status-message"></div> <!-- Status message for success/error -->
-				  <button type="submit">Send Message</button>
-				</div>
-
-			  </div>
-			</form>
-		  </div><!-- End Contact Form -->
-
-		</div>
-
-	  </div>
-
-	</section><!-- /Contact Section -->
-
-	<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-	<script>
-	  emailjs.init("V3-hIRVSWCVZWhKwC"); // Replace with your actual EmailJS public key
-	</script>
-
-	<script>
-	document.getElementById("contact-form").addEventListener("submit", function(event) {
-	  event.preventDefault(); // Prevent page reload
-
-	  // Get input values
-	  const name = document.getElementById("name-field").value;
-	  const email = document.getElementById("email-field").value;
-	  const subject = document.getElementById("subject-field").value;
-	  const message = document.getElementById("message-field").value;
-
-	  // Validate fields (optional, but recommended)
-	  if (!name || !email || !subject || !message) {
-		document.getElementById("status-message").innerHTML = "<p style='color:red;'>⚠️ Please fill out all fields.</p>";
-		return;
-	  }
-
-	  // Send email via EmailJS
-	  emailjs.send("service_p7fxuq2", "template_198p0dl", {
-		from_name: name,
-		from_email: email,
-		subject: subject,
-		message: message
-	  }).then(
-		function(response) {
-		  console.log("Email sent successfully:", response);
-		  document.getElementById("status-message").innerHTML = "<p style='color:green;'>✅ Message sent successfully!</p>";
-		  document.getElementById("contact-form").reset(); // Clear form
-		},
-		function(error) {
-		  console.log("Email failed to send:", error);
-		  document.getElementById("status-message").innerHTML = "<p style='color:red;'>❌ Failed to send message. Please try again.</p>";
-		}
-	  );
-	});
-	</script>
-
-
-  </main>
-
-  <footer id="footer" class="footer position-relative light-background">
+  <!-- Services Section -->
+  <section id="services" class="services section">
+    <!-- Section Title -->
+    <div class="section-title text-center" data-aos="fade-up">
+      <h2>Summary of Work</h2>
+      <p>Providing high-quality software development and technical solutions, specializing in backend development, database management, and web technologies.</p>
+    </div><!-- End Section Title -->
 
     <div class="container">
-      <div class="credits">
-        Designed by <a href="https://www.linkedin.com/in/patrickp2025/">Patrick Perez</a>
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+          <div class="icon flex-shrink-0"><i class="bi bi-code-slash"></i></div>
+          <div>
+            <h4 class="title"><a class="stretched-link">Backend Development</a></h4>
+            <p class="description">Building efficient, scalable, and high-performance backend systems using C, C++, Python, and SQL databases.</p>
+          </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+          <div class="icon flex-shrink-0"><i class="bi bi-database"></i></div>
+          <div>
+            <h4 class="title"><a class="stretched-link">Database Optimization</a></h4>
+            <p class="description">Designing and optimizing database structures, improving query performance, and ensuring data integrity using Informix SQL, MySQL, and PostgreSQL.</p>
+          </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
+          <div class="icon flex-shrink-0"><i class="bi bi-globe"></i></div>
+          <div>
+            <h4 class="title"><a class="stretched-link">Web Development</a></h4>
+            <p class="description">Creating responsive and dynamic websites using HTML, CSS, JavaScript, and backend integrations with Python or C#.</p>
+          </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
+          <div class="icon flex-shrink-0"><i class="bi bi-file-code"></i></div>
+          <div>
+            <h4 class="title"><a class="stretched-link">Software Debugging & Optimization</a></h4>
+            <p class="description">Identifying and fixing software bugs, memory leaks, and performance bottlenecks to enhance application stability and speed.</p>
+          </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
+          <div class="icon flex-shrink-0"><i class="bi bi-diagram-3"></i></div>
+          <div>
+            <h4 class="title"><a class="stretched-link">System Integration</a></h4>
+            <p class="description">Integrating APIs, third-party services, and legacy systems into modern applications to improve functionality and data flow.</p>
+          </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
+          <div class="icon flex-shrink-0"><i class="bi bi-graph-up"></i></div>
+          <div>
+            <h4 class="title"><a class="stretched-link">Algorithm & Data Structure Consulting</a></h4>
+            <p class="description">Providing optimized solutions for complex problems using efficient algorithms and data structures to enhance software performance.</p>
+          </div>
+        </div><!-- End Service Item -->
       </div>
     </div>
+  </section><!-- /Services Section -->
 
-  </footer>
+  <!-- Resume Section - Enhanced with timeline design -->
+  <section id="resume" class="resume section">
+    <div class="container">
+      <div class="section-title text-center" data-aos="fade-up">
+        <h2>Professional Journey</h2>
+        <p>A timeline of my education and professional experience in software engineering</p>
+      </div>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="resume-timeline" data-aos="fade-up">
+            <!-- Timeline Header -->
+            <div class="timeline-header">
+              <div class="timeline-header-item active" data-target="experience">
+                <i class="bi bi-briefcase"></i>
+                <span>Experience</span>
+              </div>
+              <div class="timeline-header-item" data-target="education">
+                <i class="bi bi-mortarboard"></i>
+                <span>Education</span>
+              </div>
+            </div>
+            
+            <!-- Timeline Content -->
+            <div class="timeline-content">
+              <!-- Experience Timeline -->
+              <div class="timeline-section active" id="experience-timeline">
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                  <div class="timeline-marker">
+                    <i class="bi bi-briefcase"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <div class="timeline-date">Dec 2022 - Present</div>
+                    <h4 class="timeline-title">Software Engineer | Fullstack Developer</h4>
+                    <div class="timeline-company">Asia United Bank, Manila, Philippines</div>
+                    <div class="timeline-description">
+                      <p>Working on critical banking applications and systems to ensure smooth financial operations.</p>
+                      <ul>
+                        <li>Developed and maintained backend applications using C and C++ for banking operations and Java for frontend applications.</li>
+                        <li>Worked on web and batch processing applications.</li>
+                        <li>Performed database operations using Informix SQL, ensuring efficient data retrieval and updates.</li>
+                        <li>Debugged and optimized existing applications to improve performance and resolve overflow issues.</li>
+                        <li>Collaborated with teams to ensure smooth integration of financial systems.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                  <div class="timeline-marker">
+                    <i class="bi bi-briefcase"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <div class="timeline-date">August 2021 - October 2021</div>
+                    <h4 class="timeline-title">Mobile App Developer (Internship)</h4>
+                    <div class="timeline-company">BCN Montjuic Tourist Point, Barcelona, Spain</div>
+                    <div class="timeline-description">
+                      <p>Gained international experience developing mobile applications for tourism.</p>
+                      <ul>
+                        <li>Developed and maintained internal tools using Java.</li>
+                        <li>Worked on small-scale web development projects involving JavaScript, HTML, and CSS.</li>
+                        <li>Led the team on frontend and backend development tasks.</li>
+                        <li>Collaborated with team on debugging and optimizing the mobile app.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Education Timeline -->
+              <div class="timeline-section" id="education-timeline">
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                  <div class="timeline-marker">
+                    <i class="bi bi-mortarboard"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <div class="timeline-date">2018 - 2022</div>
+                    <h4 class="timeline-title">Bachelor's Degree in Computer Engineering</h4>
+                    <div class="timeline-company">Bulacan State University, Malolos Bulacan</div>
+                    <div class="timeline-description">
+                      <p>Focused on software development, algorithms, and database management. Developed projects involving C, C++, Java, and Python.</p>
+                      <div class="education-highlights">
+                        <span class="badge">Software Development</span>
+                        <span class="badge">Algorithms</span>
+                        <span class="badge">Database Management</span>
+                        <span class="badge">Computer Networks</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                  <div class="timeline-marker">
+                    <i class="bi bi-mortarboard"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <div class="timeline-date">2016 - 2018</div>
+                    <h4 class="timeline-title">STEM Graduate</h4>
+                    <div class="timeline-company">Baliuag University, Baliuag Bulacan</div>
+                    <div class="timeline-description">
+                      <p>Emphasized on engineering subjects to pave way for future endeavors.</p>
+                      <div class="education-highlights">
+                        <span class="badge">Mathematics</span>
+                        <span class="badge">Physics</span>
+                        <span class="badge">Computer Science</span>
+                        <span class="badge">Engineering</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Download Resume Button -->
+          <div class="text-center mt-5" data-aos="zoom-in">
+            <a href="https://drive.google.com/file/d/1tG2S8zHvNl2QLNmngB1pAGla9icp8hxh/view?usp=sharing" download class="btn btn-primary resume-download-btn">
+              <i class="bi bi-download me-2"></i> Download Full Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+  <!-- Portfolio Section - Enhanced with modern grid and filtering -->
+  <section id="portfolio" class="portfolio section light-background">
+    <div class="container">
+      <div class="section-title text-center" data-aos="fade-up">
+        <h2>Portfolio Showcase</h2>
+        <p>A collection of my best work demonstrating my skills and expertise in software development</p>
+      </div>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+      <div class="row">
+        <div class="col-lg-12">
+          <!-- Portfolio Filters -->
+          <div class="portfolio-filters text-center" data-aos="fade-up" data-aos-delay="100">
+            <ul class="filters-list">
+              <li data-filter="*" class="filter-active">All Projects</li>
+              <li data-filter=".filter-mobapp">Mobile Apps</li>
+              <li data-filter=".filter-webapp">Web Apps</li>
+              <li data-filter=".filter-windows">Microcontroller & Console</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+      <div class="row g-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
+        <!-- Mobile App Projects -->
+        <div class="col-lg-4 col-md-6 portfolio-item filter-mobapp">
+          <a href="BCN-MTP-mobile.html" class="portfolio-card">
+            <div class="portfolio-img">
+              <img src="assets/img/portfolio/app-1.png" class="img-fluid" alt="BCN MTP mobile">
+            </div>
+            <div class="portfolio-info">
+              <h4>BCN MTP Mobile</h4>
+              <p>App made for BCN Montjuic Tourist Point Inc</p>
+              <div class="portfolio-tags">
+                <span class="tag">Java</span>
+                <span class="tag">Android</span>
+                <span class="tag">Tourism</span>
+              </div>
+            </div>
+          </a>
+        </div>
 
+        <div class="col-lg-4 col-md-6 portfolio-item filter-webapp">
+          <a href="EcoEye-AI.html" class="portfolio-card">
+            <div class="portfolio-img">
+              <img src="assets/img/portfolio/product-1.png" class="img-fluid" alt="EcoEye AI">
+            </div>
+            <div class="portfolio-info">
+              <h4>EcoEye AI</h4>
+              <p>Use to identify plants and animals</p>
+              <div class="portfolio-tags">
+                <span class="tag">Python</span>
+                <span class="tag">AI</span>
+                <span class="tag">Web App</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-windows">
+          <a href="Olfactory-Machine-UTI-Detector.html" class="portfolio-card">
+            <div class="portfolio-img">
+              <img src="assets/img/portfolio/branding-1.png" class="img-fluid" alt="Olfactory Machine UTI Detector">
+            </div>
+            <div class="portfolio-info">
+              <h4>Olfactory Machine UTI Detector</h4>
+              <p>Made from Gas Sensors and Raspberry Pi</p>
+              <div class="portfolio-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Raspberry Pi</span>
+                <span class="tag">IoT</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-mobapp">
+          <a href="Super-Mega-Scatter.html" class="portfolio-card">
+            <div class="portfolio-img">
+              <img src="assets/img/portfolio/app-2.png" class="img-fluid" alt="Super Mega Scatter">
+            </div>
+            <div class="portfolio-info">
+              <h4>Super Mega Scatter</h4>
+              <p>App made for fun</p>
+              <div class="portfolio-tags">
+                <span class="tag">Java</span>
+                <span class="tag">Android</span>
+                <span class="tag">Game</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-webapp">
+          <a href="Titan-Trade.html" class="portfolio-card">
+            <div class="portfolio-img">
+              <img src="assets/img/portfolio/product-2.png" class="img-fluid" alt="Titan Trade">
+            </div>
+            <div class="portfolio-info">
+              <h4>Titan Trade</h4>
+              <p>Personal dropshipping website</p>
+              <div class="portfolio-tags">
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">E-commerce</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-windows">
+          <a href="Smart-Dustbin.html" class="portfolio-card">
+            <div class="portfolio-img">
+              <img src="assets/img/portfolio/branding-2.png" class="img-fluid" alt="Smart Dustbin">
+            </div>
+            <div class="portfolio-info">
+              <h4>Smart Dustbin</h4>
+              <p>Smart Dustbin using Arduino</p>
+              <div class="portfolio-tags">
+                <span class="tag">Arduino</span>
+                <span class="tag">C++</span>
+                <span class="tag">IoT</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-mobapp">
+          <a href="Lotto-AI.html" class="portfolio-card">
+            <div class="portfolio-img">
+              <img src="assets/img/portfolio/app-3.png" class="img-fluid" alt="Lotto AI">
+            </div>
+            <div class="portfolio-info">
+              <h4>Lotto AI</h4>
+              <p>Use to generate lottery numbers</p>
+              <div class="portfolio-tags">
+                <span class="tag">Python</span>
+                <span class="tag">AI</span>
+                <span class="tag">Mobile App</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-webapp">
+          <a href="Djared-Web-Design.html" class="portfolio-card">
+            <div class="portfolio-img">
+              <img src="assets/img/portfolio/product-3.png" class="img-fluid" alt="Djared Web Design">
+            </div>
+            <div class="portfolio-info">
+              <h4>Djared Web Design</h4>
+              <p>A community project</p>
+              <div class="portfolio-tags">
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Community</span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-windows">
+          <a href="Functions-in-Python.html" class="portfolio-card">
+            <div class="portfolio-img">
+              <img src="assets/img/portfolio/branding-3.png" class="img-fluid" alt="Functions in Python">
+            </div>
+            <div class="portfolio-info">
+              <h4>Functions in Python</h4>
+              <p>Program made using Python</p>
+              <div class="portfolio-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Console</span>
+                <span class="tag">Algorithms</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section - Enhanced with modern design -->
+  <section id="contact" class="contact section">
+    <div class="container">
+      <div class="section-title text-center" data-aos="fade-up">
+        <h2>Get In Touch</h2>
+        <p>Feel free to contact me with any questions or project inquiries</p>
+      </div>
+
+      <div class="row gy-5">
+        <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
+          <div class="contact-info-card">
+            <div class="contact-info-header">
+              <h3>Contact Information</h3>
+              <p>Ready to discuss your project? Reach out through any of these channels</p>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="icon-box">
+                <i class="bi bi-geo-alt"></i>
+              </div>
+              <div class="content">
+                <h5>Location</h5>
+                <p>Pinagbarilan, Baliuag, Bulacan</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="icon-box">
+                <i class="bi bi-telephone"></i>
+              </div>
+              <div class="content">
+                <h5>Phone</h5>
+                <p>+63 966 9931 667</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="icon-box">
+                <i class="bi bi-envelope"></i>
+              </div>
+              <div class="content">
+                <h5>Email</h5>
+                <p>patrickperez1322@gmail.com</p>
+              </div>
+            </div>
+            
+            <div class="social-links">
+              <a href="https://www.facebook.com/pat.flores.339" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://github.com/pat1322" class="github"><i class="bi bi-github"></i></a>
+              <a href="https://www.linkedin.com/in/patrickp2025/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+            
+            <div class="map-container">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3854.752559834969!2d120.88352019999998!3d14.950872800000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396555a0daef5f9%3A0x7d434bb5a87853a7!2sAmore%20Apartelle!5e0!3m2!1sen!2sph!4v1741576978028!5m2!1sen!2sph" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+          <div class="contact-form-card">
+            <div class="contact-form-header">
+              <h3>Send Me a Message</h3>
+              <p>I'll get back to you as soon as possible</p>
+            </div>
+            
+            <form id="contact-form" class="contact-form">
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="name-field">Your Name</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-person"></i></span>
+                      <input type="text" id="name-field" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email-field">Your Email</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                      <input type="email" id="email-field" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="subject-field">Subject</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-chat-left-text"></i></span>
+                      <input type="text" id="subject-field" class="form-control" placeholder="Enter subject" required>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="message-field">Message</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-pencil-square"></i></span>
+                      <textarea id="message-field" class="form-control" rows="6" placeholder="Enter your message" required></textarea>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-12">
+                  <div id="status-message"></div>
+                  <button type="submit" class="btn btn-primary submit-btn">
+                    <i class="bi bi-send me-2"></i> Send Message
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="footer" class="footer position-relative light-background">
+  <div class="container">
+    <div class="credits">
+      Designed by <a href="https://www.linkedin.com/in/patrickp2025/">Patrick Perez</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll Top -->
+<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Preloader -->
+<div id="preloader"></div>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/typed.js/typed.umd.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+<!-- Main JS File -->
+<script src="assets/js/main.js"></script>
+
+<!-- Grouped JavaScript -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<!-- Combined JavaScript -->
+<script>
+// Initialize EmailJS
+emailjs.init("V3-hIRVSWCVZWhKwC"); // Replace with your actual EmailJS public key
+
+// Contact Form Submission
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent page reload
+
+  // Get input values
+  const name = document.getElementById("name-field").value;
+  const email = document.getElementById("email-field").value;
+  const subject = document.getElementById("subject-field").value;
+  const message = document.getElementById("message-field").value;
+
+  // Validate fields (optional, but recommended)
+  if (!name || !email || !subject || !message) {
+    document.getElementById("status-message").innerHTML = "<p style='color:red;'>⚠️ Please fill out all fields.</p>";
+    return;
+  }
+
+  // Send email via EmailJS
+  emailjs.send("service_p7fxuq2", "template_198p0dl", {
+    from_name: name,
+    from_email: email,
+    subject: subject,
+    message: message
+  }).then(
+    function(response) {
+      console.log("Email sent successfully:", response);
+      document.getElementById("status-message").innerHTML = "<p style='color:green;'>✅ Message sent successfully!</p>";
+      document.getElementById("contact-form").reset(); // Clear form
+    },
+    function(error) {
+      console.log("Email failed to send:", error);
+      document.getElementById("status-message").innerHTML = "<p style='color:red;'>❌ Failed to send message. Please try again.</p>";
+    }
+  );
+});
+
+// GTA Mode Script with RPG Elements
+document.addEventListener("DOMContentLoaded", function () {
+  const gtaToggle = document.getElementById("gtaToggle");
+  const heroSection = document.getElementById("hero");
+  const typedText = document.getElementById("typed-text");
+  const gtaThemeMusic = document.getElementById("gtaThemeMusic");
+  const toggleSound = document.getElementById("toggleSound");
+  const heroBg = document.querySelector("#hero .hero-bg");
+  const thugLifeGlasses = document.getElementById("thugLifeGlasses");
+  const container = document.querySelector("#hero .container");
+  const body = document.body;
+  
+  // Required elements check to prevent null reference errors
+  if (!gtaToggle || !heroSection || !typedText) {
+    console.error("Required elements not found!");
+    return;
+  }
+  
+  // Force hero background to load properly
+  if (heroBg) {
+    // Ensure background is loaded
+    if (!heroBg.complete) {
+      heroBg.onload = function() {
+        heroBg.style.opacity = "1";
+      };
+    } else {
+      heroBg.style.opacity = "1";
+    }
+  }
+  
+  // Configure audio
+  gtaThemeMusic.loop = true;
+  gtaThemeMusic.volume = 0.7;
+  toggleSound.volume = 0.3;
+
+  // Typed.js Words
+  let normalWords = ["Software Engineer", "Developer", "Data Analyst", "Web Designer"];
+  let gtaWords = ["Ethical Noob Hacker", "Digital Alchemist", "Stack Overflow Solutions Architect", "Time Traveling Debugger", "Casual Gamer Developer"];
+  let typedInstance;
+  let stars = [];
+  let moneyInterval;
+
+  // Function to position glasses relative to the face/container
+  function positionGlasses() {
+    if (!thugLifeGlasses || !container) return;
+    
+    // Get container dimensions and position
+    const containerRect = container.getBoundingClientRect();
+    const heroRect = heroSection.getBoundingClientRect();
+    
+    // Calculate relative position (above the text container which should be near your face)
+    // Adjust these values to fine-tune the position relative to your face in the image
+    const relativeTop = containerRect.top - heroRect.top - (containerRect.height * 1.49);
+    const verticalPosition = relativeTop;
+    
+    // Apply the position
+    thugLifeGlasses.style.top = `${verticalPosition}px`;
+    
+    // You might need a horizontal adjustment too
+    // Adjust leftOffset if the glasses need to move slightly left or right
+    const leftOffset = -7; // Adjust this value if needed for centering
+    thugLifeGlasses.style.marginLeft = `${leftOffset}px`;
+  }
+
+  function startTyping(words) {
+    if (typedInstance) typedInstance.destroy(); // Destroy old instance
+    typedInstance = new Typed("#typed-text", {
+      strings: words,
+      typeSpeed: 80,
+      backSpeed: 50,
+      backDelay: 1000,
+      loop: true,
+    });
+  }
+
+  // Initialize typing
+  try {
+    startTyping(normalWords); // Start with default words
+  } catch (error) {
+    console.error("Typed.js initialization error:", error);
+    // Fallback if Typed.js fails
+    typedText.textContent = normalWords[0]; 
+  }
+  
+  // Create stars (background effect for GTA mode)
+  function createStars() {
+    // Clear existing stars
+    stars.forEach(star => {
+      if (star && star.parentNode) {
+        star.parentNode.removeChild(star);
+      }
+    });
+    stars = [];
+    
+    // Create new stars
+    for (let i = 0; i < 50; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.width = Math.random() * 3 + 'px';
+      star.style.height = star.style.width;
+      star.style.left = Math.random() * 100 + '%';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 2 + 's';
+      heroSection.appendChild(star);
+      stars.push(star);
+    }
+  }
+
+  // RPG Elements
+  function createDamageNumber(x, y, amount) {
+    const damageNumber = document.createElement('div');
+    damageNumber.classList.add('damage-number');
+    damageNumber.textContent = amount;
+    damageNumber.style.left = `${x}px`;
+    damageNumber.style.top = `${y}px`;
+    document.body.appendChild(damageNumber);
+    
+    setTimeout(() => {
+      if (damageNumber.parentNode) {
+        damageNumber.parentNode.removeChild(damageNumber);
+      }
+    }, 1500);
+  }
+
+  // Add click event for damage numbers in gaming mode
+  document.addEventListener('click', function(e) {
+    if (body.classList.contains('gaming-mode')) {
+      createDamageNumber(e.clientX, e.clientY, Math.floor(Math.random() * 100) + 1);
+    }
+  });
+
+  gtaToggle.addEventListener("change", function () {
+    // Play toggle sound
+    try {
+      toggleSound.currentTime = 0;
+      toggleSound.play();
+    } catch (error) {
+      console.warn("Audio error:", error);
+    }
+    
+    if (gtaToggle.checked) {
+      // Activate GTA Mode
+      heroSection.classList.add("gta-dark-mode");
+      body.classList.add("gaming-mode");
+      
+      try {
+        startTyping(gtaWords); // Change words
+      } catch (error) {
+        console.error("Typed.js error:", error);
+        typedText.textContent = gtaWords[0]; 
+      }
+
+      // Play GTA music
+      try {
+        // Set the current time to 5 seconds before playing
+        gtaThemeMusic.currentTime = 5;
+        gtaThemeMusic.play().catch(e => console.warn("Audio autoplay blocked:", e));
+      } catch (error) {
+        console.warn("Audio error:", error);
+      }
+
+      // Show sunglasses with animation and position them properly
+      if (thugLifeGlasses) {
+        thugLifeGlasses.classList.add("active");
+        // Add slight delay to ensure layout is ready before positioning
+        setTimeout(positionGlasses, 100);
+      }
+      
+      // Create star background
+      createStars();
+
+      // Money rain effect
+      moneyInterval = setInterval(() => {
+        let money = document.createElement("img");
+        money.src = "assets/img/money.png";
+        money.classList.add("money-rain");
+        money.style.left = `${Math.random() * 100}%`;
+        heroSection.appendChild(money);
+
+        setTimeout(() => {
+          if (money && money.parentNode) {
+            money.parentNode.removeChild(money);
+          }
+        }, 3000);
+      }, 300);
+
+      // Show quest notification
+      document.querySelector('.quest-notification').style.display = 'block';
+      
+      // Update mode text
+      document.querySelector('.mode-text').textContent = 'Gaming Mode';
+      
+    } else {
+      // Deactivate GTA Mode
+      heroSection.classList.remove("gta-dark-mode");
+      body.classList.remove("gaming-mode");
+      
+      try {
+        startTyping(normalWords); // Revert words
+      } catch (error) {
+        console.error("Typed.js error:", error);
+        typedText.textContent = normalWords[0]; 
+      }
+
+      // Stop GTA music
+      try {
+        gtaThemeMusic.pause();
+        gtaThemeMusic.currentTime = 0;
+      } catch (error) {
+        console.warn("Audio error:", error);
+      }
+
+      // Hide sunglasses
+      if (thugLifeGlasses) thugLifeGlasses.classList.remove("active");
+
+      // Remove stars
+      stars.forEach(star => {
+        if (star && star.parentNode) {
+          star.parentNode.removeChild(star);
+        }
+      });
+      stars = [];
+
+      // Stop money rain
+      clearInterval(moneyInterval);
+      heroSection.querySelectorAll(".money-rain").forEach(el => {
+        if (el && el.parentNode) {
+          el.parentNode.removeChild(el);
+        }
+      });
+
+      // Hide quest notification
+      document.querySelector('.quest-notification').style.display = 'none';
+      
+      // Update mode text
+      document.querySelector('.mode-text').textContent = 'Dev Mode';
+    }
+  });
+  
+  gtaToggle.addEventListener("change", function(e) {
+    // Prevent event from bubbling up
+    e.stopPropagation();
+  });			
+  
+  // Add touch/mobile support
+  gtaToggle.addEventListener("touchend", function(e) {
+    e.preventDefault(); // Prevent double triggering
+  });
+  
+  // Add keyboard support (spacebar toggles GTA mode when focused on hero section)
+  document.addEventListener("keydown", function(e) {
+    // Only trigger if hero section is visible in viewport
+    const rect = heroSection.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+    
+    if (e.code === "Space" && document.activeElement !== gtaToggle && isVisible) {
+      gtaToggle.checked = !gtaToggle.checked;
+      gtaToggle.dispatchEvent(new Event("change"));
+      e.preventDefault(); // Prevent scrolling
+    }
+  });
+  
+  // Handle window resize to reposition accessories
+  window.addEventListener("resize", function() {
+    if (gtaToggle.checked && thugLifeGlasses.classList.contains("active")) {
+      // Recalculate position on resize
+      positionGlasses();
+    }
+  });
+  
+  // Run initial positioning after images have loaded
+  window.addEventListener('load', function() {
+    if (gtaToggle.checked && thugLifeGlasses.classList.contains("active")) {
+      positionGlasses();
+    }
+  });
+});
+
+// About Section Bubbles
+document.addEventListener("DOMContentLoaded", function() {
+  let techStacks = document.querySelectorAll(".tech-stack");
+  let bubbleContainer = document.getElementById("bubble-container");
+  let backendIcons = document.querySelectorAll(".backend-bubble-icons img");
+  let frontendIcons = document.querySelectorAll(".frontend-bubble-icons img");
+
+  let hoverTimeout;
+
+  function getRandomIcon(category) {
+    if (category === "backend") {
+      let randomIndex = Math.floor(Math.random() * backendIcons.length);
+      return backendIcons[randomIndex].src;
+    } else if (category === "frontend") {
+      let randomIndex = Math.floor(Math.random() * frontendIcons.length);
+      return frontendIcons[randomIndex].src;
+    }
+    return null;
+  }
+
+  techStacks.forEach((stack) => {
+    stack.addEventListener("mouseenter", function() {
+      let bubblesCount = 5;
+      let iconSrc = stack.getAttribute("data-icon");
+      let isBackend = stack.classList.contains("backend-development");
+      let isFrontend = stack.classList.contains("frontend-technologies");
+      
+      hoverTimeout = setInterval(() => {
+        if (bubblesCount < 20) bubblesCount += 1; // Increase bubbles if hovering longer
+      }, 500);
+
+      for (let i = 0; i < bubblesCount; i++) {
+        let bubble = document.createElement("img");
+        
+        // For backend/frontend categories, use random icons from their collections
+        if (isBackend) {
+          bubble.src = getRandomIcon("backend") || iconSrc;
+        } else if (isFrontend) {
+          bubble.src = getRandomIcon("frontend") || iconSrc;
+        } else {
+          bubble.src = iconSrc;
+        }
+        
+        bubble.classList.add("bubble");
+
+        let randomX = Math.random() * window.innerWidth;
+        let randomY = Math.random() * window.innerHeight;
+        bubble.style.left = `${randomX}px`;
+        bubble.style.top = `${randomY}px`;
+
+        let randomSize = Math.random() * 40 + 20;
+        bubble.style.width = `${randomSize}px`;
+        bubble.style.height = `${randomSize}px`;
+
+        bubbleContainer.appendChild(bubble);
+
+        gsap.to(bubble, {
+          y: -Math.random() * 300 - 100, // Float upwards
+          x: (Math.random() - 0.5) * 100, // Slight horizontal drift
+          opacity: 0,
+          duration: 4,
+          onComplete: () => {
+            bubble.style.animation = "pop 0.5s forwards";
+            setTimeout(() => bubble.remove(), 500);
+          }
+        });
+      }
+    });
+
+    stack.addEventListener("mouseleave", function() {
+      clearInterval(hoverTimeout);
+    });
+  });
+});
+
+// Navigation Highlighting
+document.addEventListener("DOMContentLoaded", function() {
+  // Get all sections that have an ID defined
+  const sections = document.querySelectorAll("section[id]");
+  
+  // Get all nav links
+  const navLinks = document.querySelectorAll(".navmenu ul li a");
+  
+  // Add an event listener for scroll
+  window.addEventListener("scroll", navHighlighter);
+  
+  function navHighlighter() {
+    // Get current scroll position
+    let scrollY = window.pageYOffset;
+    
+    // Now we loop through sections to get height, top and ID values for each
+    sections.forEach(current => {
+      const sectionHeight = current.offsetHeight;
+      const sectionTop = current.offsetTop - 100; // Adjust offset as needed
+      const sectionId = current.getAttribute("id");
+      
+      // If our current scroll position enters the space where current section is
+      // add .active class to corresponding navigation link, else remove it
+      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        navLinks.forEach(link => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === "#" + sectionId) {
+            link.classList.add("active");
+          }
+        });
+      }
+    });
+  }
+  
+  // Run the function on load to set initial state
+  navHighlighter();
+});
+
+// Portfolio Filtering
+document.addEventListener("DOMContentLoaded", function() {
+  const portfolioFilters = document.querySelectorAll('.filters-list li');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  
+  portfolioFilters.forEach(filter => {
+    filter.addEventListener('click', function() {
+      // Remove active class from all filters
+      portfolioFilters.forEach(f => f.classList.remove('filter-active'));
+      
+      // Add active class to clicked filter
+      this.classList.add('filter-active');
+      
+      // Filter portfolio items
+      const filterValue = this.getAttribute('data-filter');
+      
+      portfolioItems.forEach(item => {
+        if (filterValue === '*' || item.classList.contains(filterValue.substring(1))) {
+          item.style.display = 'block';
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'scale(1)';
+          }, 50);
+        } else {
+          item.style.opacity = '0';
+          item.style.transform = 'scale(0.8)';
+          setTimeout(() => {
+            item.style.display = 'none';
+          }, 300);
+        }
+      });
+    });
+  });
+  
+  // Resume Timeline Functionality
+  const timelineHeaderItems = document.querySelectorAll('.timeline-header-item');
+  
+  timelineHeaderItems.forEach(item => {
+    item.addEventListener('click', function() {
+      // Remove active class from all header items
+      timelineHeaderItems.forEach(i => i.classList.remove('active'));
+      
+      // Add active class to clicked item
+      this.classList.add('active');
+      
+      // Show corresponding timeline section
+      const target = this.getAttribute('data-target');
+      document.querySelectorAll('.timeline-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(target + '-timeline').classList.add('active');
+    });
+  });
+  
+  // Animate on scroll initialization
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
+  });
+});
+</script>
 </body>
-
 </html>
