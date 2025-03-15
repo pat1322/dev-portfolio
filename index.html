@@ -1256,6 +1256,10 @@
     position: relative;
   }
 
+  body.gaming-mode .resume .section-title p {
+    color: #ffffff;
+  }
+
   body.gaming-mode .timeline-header {
     background-color: rgba(20, 20, 30, 0.7);
     border: 1px solid #333;
@@ -1480,158 +1484,6 @@
     box-shadow: 0 0 20px rgba(0, 198, 255, 0.7);
   }
 
-  /* RPG Elements - Enhanced */
-  .rpg-stats-bar {
-    display: none;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: rgba(10, 15, 25, 0.85);
-    border: 2px solid #00c6ff;
-    border-radius: 10px;
-    padding: 15px;
-    z-index: 1000;
-    width: 250px;
-    box-shadow: 0 0 20px rgba(0, 198, 255, 0.5);
-    font-family: 'Orbitron', sans-serif;
-    backdrop-filter: blur(5px);
-  }
-
-  body.gaming-mode .rpg-stats-bar {
-    display: block;
-  }
-
-  .rpg-stat {
-    margin-bottom: 10px;
-  }
-
-  .rpg-stat-label {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-    font-size: 12px;
-    color: #e0e0e0;
-  }
-
-  .rpg-stat-bar {
-    height: 10px;
-    background-color: rgba(30, 30, 40, 0.7);
-    border-radius: 5px;
-    overflow: hidden;
-    border: 1px solid #333;
-  }
-
-  .rpg-stat-fill {
-    height: 100%;
-    border-radius: 5px;
-    transition: width 0.5s ease;
-  }
-
-  .rpg-health .rpg-stat-fill {
-    background: linear-gradient(90deg, #ff0055, #ff5555);
-    box-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
-  }
-
-  .rpg-mana .rpg-stat-fill {
-    background: linear-gradient(90deg, #0047ab, #00c6ff);
-    box-shadow: 0 0 10px rgba(0, 198, 255, 0.5);
-  }
-
-  .rpg-exp .rpg-stat-fill {
-    background: linear-gradient(90deg, #ffaa00, #ffff00);
-    box-shadow: 0 0 10px rgba(255, 170, 0, 0.5);
-  }
-
-  .rpg-level {
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, #0047ab, #00c6ff);
-    color: #fff;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 12px;
-    box-shadow: 0 0 10px rgba(0, 198, 255, 0.7);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  /* Floating damage numbers - Enhanced */
-  .damage-number {
-    position: absolute;
-    font-family: 'Orbitron', sans-serif;
-    color: #ff0055;
-    font-weight: bold;
-    text-shadow: 0 0 5px rgba(255, 0, 85, 0.7);
-    pointer-events: none;
-    animation: floatUp 1.5s forwards;
-    z-index: 9999;
-  }
-
-  @keyframes floatUp {
-    0% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-    50% {
-      opacity: 1;
-      transform: translateY(-25px) scale(1.2);
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(-50px) scale(0.8);
-    }
-  }
-
-  /* Quest notification - Enhanced */
-  .quest-notification {
-    display: none;
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(10, 15, 25, 0.85);
-    border: 2px solid #ffaa00;
-    border-radius: 10px;
-    padding: 15px 20px;
-    color: #fff;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 12px;
-    z-index: 1000;
-    box-shadow: 0 0 20px rgba(255, 170, 0, 0.5);
-    max-width: 80%;
-    text-align: center;
-    backdrop-filter: blur(5px);
-  }
-
-  body.gaming-mode .quest-notification {
-    display: block;
-    animation: questAppear 0.5s forwards, questDisappear 0.5s 5s forwards;
-  }
-
-  @keyframes questAppear {
-    from {
-      opacity: 0;
-      transform: translate(-50%, 50px);
-    }
-    to {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
-  }
-
-  @keyframes questDisappear {
-    from {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
-    to {
-      opacity: 0;
-      transform: translate(-50%, 50px);
-    }
-  }
-
   /* Cursor - Enhanced */
   body.gaming-mode {
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2300c6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>'), auto;
@@ -1682,54 +1534,6 @@
   @keyframes holographic {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
-  }
-
-  /* Power-up notification */
-  .power-up-notification {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(10, 15, 25, 0.85);
-    border: 2px solid #00c6ff;
-    border-radius: 10px;
-    padding: 20px;
-    color: #fff;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 16px;
-    z-index: 2000;
-    box-shadow: 0 0 30px rgba(0, 198, 255, 0.7);
-    text-align: center;
-    backdrop-filter: blur(5px);
-    max-width: 80%;
-  }
-
-  .power-up-notification h3 {
-    color: #00c6ff;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-
-  .power-up-notification p {
-    margin-bottom: 15px;
-  }
-
-  .power-up-notification button {
-    background: linear-gradient(135deg, #0047ab, #00c6ff);
-    border: none;
-    color: white;
-    padding: 8px 20px;
-    border-radius: 5px;
-    font-family: 'Orbitron', sans-serif;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .power-up-notification button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(0, 198, 255, 0.7);
   }
 
   /* Achievement system */
@@ -1846,6 +1650,172 @@
     box-shadow: 0 0 5px rgba(0, 198, 255, 0.7);
     opacity: 0;
   }
+
+  /* Section-specific quest notifications */
+  .section-quest {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(10, 15, 25, 0.85);
+    border: 2px solid #ffaa00;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    z-index: 100;
+    box-shadow: 0 0 20px rgba(255, 170, 0, 0.5);
+    max-width: 80%;
+    text-align: center;
+    backdrop-filter: blur(5px);
+  }
+
+  body.gaming-mode .section:hover .section-quest {
+    display: block;
+    animation: questAppear 0.5s forwards;
+  }
+
+  @keyframes questAppear {
+    from {
+      opacity: 0;
+      transform: translate(-50%, 20px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  /* Redesigned Game Stats Container */
+  .game-stats-container {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    z-index: 100;
+    width: 200px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  body.gaming-mode .game-stats-container {
+    display: block;
+    opacity: 1;
+  }
+
+  body.gaming-mode .hero:hover .game-stats-container {
+    opacity: 1;
+  }
+
+  .game-stat {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #00ff00;
+    border-radius: 0;
+    margin-bottom: 10px;
+    padding: 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: #00ff00;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .game-stat::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, 
+      rgba(0, 255, 0, 0.1), 
+      rgba(0, 255, 0, 0.2), 
+      rgba(0, 255, 0, 0.1));
+    opacity: 0.3;
+    animation: scanEffect 2s linear infinite;
+  }
+
+  @keyframes scanEffect {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .game-stat-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+
+  .game-stat-label .icon {
+    margin-right: 5px;
+    font-size: 12px;
+  }
+
+  .game-stat-label .value {
+    letter-spacing: 1px;
+  }
+
+  .game-stat-bar {
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #00ff00;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .game-stat-fill {
+    height: 100%;
+    background-color: #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+    position: relative;
+    animation: pulseFill 2s infinite alternate;
+  }
+
+  @keyframes pulseFill {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+  }
+
+  .game-stat-fill::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, 
+      transparent, 
+      rgba(255, 255, 255, 0.4), 
+      transparent);
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .game-stat-pixels {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    display: flex;
+  }
+
+  .game-stat-pixel {
+    flex: 1;
+    height: 100%;
+    background-color: #00ff00;
+    margin: 0 1px;
+    opacity: 0.8;
+  }
 </style>
 </head>
 
@@ -1883,43 +1853,6 @@
   </nav>
 </header>
 
-<!-- RPG Stats Bar (Hidden by default, shown in gaming mode) -->
-<div class="rpg-stats-bar">
-  <div class="rpg-level">Level 25</div>
-  <div class="rpg-stat rpg-health">
-    <div class="rpg-stat-label">
-      <span>HP</span>
-      <span>750/750</span>
-    </div>
-    <div class="rpg-stat-bar">
-      <div class="rpg-stat-fill" style="width: 100%;"></div>
-    </div>
-  </div>
-  <div class="rpg-stat rpg-mana">
-    <div class="rpg-stat-label">
-      <span>MP</span>
-      <span>450/450</span>
-    </div>
-    <div class="rpg-stat-bar">
-      <div class="rpg-stat-fill" style="width: 100%;"></div>
-    </div>
-  </div>
-  <div class="rpg-stat rpg-exp">
-    <div class="rpg-stat-label">
-      <span>EXP</span>
-      <span>7,540/10,000</span>
-    </div>
-    <div class="rpg-stat-bar">
-      <div class="rpg-stat-fill" style="width: 75%;"></div>
-    </div>
-  </div>
-</div>
-
-<!-- Quest Notification -->
-<div class="quest-notification">
-  NEW QUEST: "Master of Code" - Explore all sections of the portfolio to unlock special abilities!
-</div>
-
 <!-- Achievement Notification -->
 <div class="achievement">
   <div class="achievement-icon">
@@ -1929,13 +1862,6 @@
     <h4>Achievement Unlocked!</h4>
     <p>Code Explorer: Discovered the developer's secret skills</p>
   </div>
-</div>
-
-<!-- Power-up Notification -->
-<div class="power-up-notification">
-  <h3>Power-Up Acquired!</h3>
-  <p>You've unlocked the "Code Vision" ability. You can now see through complex algorithms!</p>
-  <button>Continue</button>
 </div>
 
 <!-- Cyberpunk Grid Overlay -->
@@ -1964,16 +1890,74 @@
       <span class="mode-text">Dev Mode</span>
     </div>
 
+    <!-- Game Stats Container - Positioned under toggle switch -->
+    <div class="game-stats-container">
+      <div class="game-stat">
+        <div class="game-stat-label">
+          <span><i class="bi bi-currency-dollar icon"></i> CREDITS</span>
+          <span class="value" id="money-value">1,000,000</span>
+        </div>
+        <div class="game-stat-bar">
+          <div class="game-stat-fill" style="width: 85%;"></div>
+          <div class="game-stat-pixels">
+            <div class="game-stat-pixel"></div>
+            <div class="game-stat-pixel"></div>
+            <div class="game-stat-pixel"></div>
+            <div class="game-stat-pixel"></div>
+            <div class="game-stat-pixel"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="game-stat">
+        <div class="game-stat-label">
+          <span><i class="bi bi-graph-up-arrow icon"></i> STOCKS</span>
+          <span class="value" id="stock-value">+487%</span>
+        </div>
+        <div class="game-stat-bar">
+          <div class="game-stat-fill" style="width: 75%;"></div>
+          <div class="game-stat-pixels">
+            <div class="game-stat-pixel"></div>
+            <div class="game-stat-pixel"></div>
+            <div class="game-stat-pixel"></div>
+            <div class="game-stat-pixel"></div>
+            <div class="game-stat-pixel"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="game-stat">
+        <div class="game-stat-label">
+          <span><i class="bi bi-coin icon"></i> CRYPTO</span>
+          <span class="value" id="crypto-value">2,345</span>
+        </div>
+        <div class="game-stat-bar">
+          <div class="game-stat-fill" style="width: 65%;"></div>
+          <div class="game-stat-pixels">
+            <div class="game-stat-pixel"></div>
+            <div class="game-stat-pixel"></div>
+            <div class="game-stat-pixel"></div>
+            <div class="game-stat-pixel"></div>
+            <div class="game-stat-pixel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <!-- Accessories Container -->
     <div id="accessoriesContainer">
       <img id="thugLifeGlasses" src="assets/img/thug-life-glasses.png" class="falling-item" alt="Thug Life Glasses">
+    </div>
+    
+    <!-- Section-specific quest notification -->
+    <div class="section-quest">
+      NEW QUEST: "Digital Overlord" - Master all coding languages to unlock unlimited wealth!
     </div>
     
     <!-- Sound Effects -->
     <audio id="gtaThemeMusic" src="assets/sounds/gta-theme.mp3" preload="auto"></audio>
     <audio id="toggleSound" src="assets/sounds/toggle.mp3" preload="auto"></audio>
     <audio id="achievementSound" src="assets/sounds/achievement.mp3" preload="auto"></audio>
-    <audio id="powerupSound" src="assets/sounds/powerup.mp3" preload="auto"></audio>
   </section>
 
   <!-- About Section -->
@@ -2018,6 +2002,11 @@
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" class="tech-icon" alt="C#">
         </a> to expand my skill set and take on new challenges in software development.
       </p>
+    </div>
+    
+    <!-- Section-specific quest notification -->
+    <div class="section-quest">
+      SIDE QUEST: "Tech Collector" - Hover over all tech stacks to reveal hidden knowledge!
     </div>
   </section>
 
@@ -2145,6 +2134,11 @@
         </div>
       </div>
     </div>
+    
+    <!-- Section-specific quest notification -->
+    <div class="section-quest">
+      OBJECTIVE: "Skill Master" - Collect all programming languages to level up your arsenal!
+    </div>
   </section>
 
   <!-- Services Section -->
@@ -2205,6 +2199,11 @@
           </div>
         </div><!-- End Service Item -->
       </div>
+    </div>
+    
+    <!-- Section-specific quest notification -->
+    <div class="section-quest">
+      MISSION: "Service Provider" - Unlock all service categories to maximize your tech influence!
     </div>
   </section><!-- /Services Section -->
 
@@ -2330,6 +2329,11 @@
           </div>
         </div>
       </div>
+    </div>
+    
+    <!-- Section-specific quest notification -->
+    <div class="section-quest">
+      QUEST LOG: "Career Path" - Explore all timeline entries to unlock hidden achievements!
     </div>
   </section>
 
@@ -2511,6 +2515,11 @@
         </div>
       </div>
     </div>
+    
+    <!-- Section-specific quest notification -->
+    <div class="section-quest">
+      CHALLENGE: "Project Collector" - View all portfolio items to earn bonus development points!
+    </div>
   </section>
 
   <!-- Contact Section - Enhanced with modern design -->
@@ -2632,6 +2641,11 @@
         </div>
       </div>
     </div>
+    
+    <!-- Section-specific quest notification -->
+    <div class="section-quest">
+      FINAL MISSION: "Network Connection" - Send a message to establish a powerful alliance!
+    </div>
   </section>
 
 </main>
@@ -2718,13 +2732,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const gtaThemeMusic = document.getElementById("gtaThemeMusic");
   const toggleSound = document.getElementById("toggleSound");
   const achievementSound = document.getElementById("achievementSound");
-  const powerupSound = document.getElementById("powerupSound");
   const heroBg = document.querySelector("#hero .hero-bg");
   const thugLifeGlasses = document.getElementById("thugLifeGlasses");
   const container = document.querySelector("#hero .container");
   const body = document.body;
   const achievement = document.querySelector(".achievement");
-  const powerUpNotification = document.querySelector(".power-up-notification");
+  const moneyValue = document.getElementById("money-value");
+  const stockValue = document.getElementById("stock-value");
+  const cryptoValue = document.getElementById("crypto-value");
+  const gameStatsContainer = document.querySelector(".game-stats-container");
   
   // Required elements check to prevent null reference errors
   if (!gtaToggle || !heroSection || !typedText) {
@@ -2749,7 +2765,6 @@ document.addEventListener("DOMContentLoaded", function () {
   gtaThemeMusic.volume = 0.7;
   toggleSound.volume = 0.3;
   achievementSound.volume = 0.5;
-  powerupSound.volume = 0.5;
 
   // Typed.js Words
   let normalWords = ["Software Engineer", "Developer", "Data Analyst", "Web Designer"];
@@ -2758,6 +2773,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let stars = [];
   let moneyInterval;
   let energyParticles = [];
+  let moneyUpdateInterval;
 
   // Function to position glasses relative to the face/container
   function positionGlasses() {
@@ -2935,30 +2951,63 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Show power-up notification
-  function showPowerUp() {
-    if (powerUpNotification) {
-      powerUpNotification.style.display = 'block';
+  // Update money counters
+  function updateMoneyCounters() {
+    if (moneyValue && stockValue && cryptoValue) {
+      // Generate random increases
+      const moneyIncrease = Math.floor(Math.random() * 50000) + 10000;
+      const stockIncrease = Math.floor(Math.random() * 20) + 5;
+      const cryptoIncrease = Math.floor(Math.random() * 100) + 20;
       
-      try {
-        powerupSound.currentTime = 0;
-        powerupSound.play().catch(e => console.warn("Audio autoplay blocked:", e));
-      } catch (error) {
-        console.warn("Audio error:", error);
+      // Get current values
+      let currentMoney = parseInt(moneyValue.textContent.replace(/,/g, ''));
+      let currentStock = parseInt(stockValue.textContent.replace(/\+|%/g, ''));
+      let currentCrypto = parseInt(cryptoValue.textContent);
+      
+      // Update values
+      currentMoney += moneyIncrease;
+      currentStock += stockIncrease;
+      currentCrypto += cryptoIncrease;
+      
+      // Format and display
+      moneyValue.textContent = currentMoney.toLocaleString();
+      stockValue.textContent = `+${currentStock}%`;
+      cryptoValue.textContent = currentCrypto.toString();
+      
+      // Create money increase notification
+      const moneyNotification = document.createElement('div');
+      moneyNotification.classList.add('damage-number');
+      moneyNotification.style.color = '#00ff00';
+      moneyNotification.textContent = `+$${moneyIncrease.toLocaleString()}`;
+      
+      // Position near the money counter
+      const gameStatLabel = document.querySelector('.game-stat-label');
+      if (gameStatLabel) {
+        const rect = gameStatLabel.getBoundingClientRect();
+        moneyNotification.style.left = `${rect.right + 10}px`;
+        moneyNotification.style.top = `${rect.top}px`;
+        document.body.appendChild(moneyNotification);
+        
+        // Animate and remove
+        setTimeout(() => {
+          if (moneyNotification.parentNode) {
+            moneyNotification.parentNode.removeChild(moneyNotification);
+          }
+        }, 1500);
       }
       
-      // Add click event to close button
-      const closeButton = powerUpNotification.querySelector('button');
-      if (closeButton) {
-        closeButton.addEventListener('click', function() {
-          powerUpNotification.style.display = 'none';
-        });
+      // Update fill bars
+      const fillBars = document.querySelectorAll('.game-stat-fill');
+      if (fillBars.length >= 3) {
+        // Randomly adjust fill widths for visual effect
+        const randomWidth1 = 65 + Math.floor(Math.random() * 30);
+        const randomWidth2 = 60 + Math.floor(Math.random() * 35);
+        const randomWidth3 = 55 + Math.floor(Math.random() * 40);
+        
+        fillBars[0].style.width = `${randomWidth1}%`;
+        fillBars[1].style.width = `${randomWidth2}%`;
+        fillBars[2].style.width = `${randomWidth3}%`;
       }
-      
-      // Auto-close after 8 seconds
-      setTimeout(() => {
-        powerUpNotification.style.display = 'none';
-      }, 8000);
     }
   }
 
@@ -3016,12 +3065,9 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }, 3000);
       }, 300);
-
-      // Show quest notification
-      document.querySelector('.quest-notification').style.display = 'block';
       
       // Update mode text
-      document.querySelector('.mode-text').textContent = 'Dev Mode';
+      document.querySelector('.mode-text').textContent = 'Gaming Mode';
       
       // Start energy particles animation
       requestAnimationFrame(updateEnergyParticles);
@@ -3029,8 +3075,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // Show achievement after 3 seconds
       setTimeout(showAchievement, 3000);
       
-      // Show power-up after 10 seconds
-      setTimeout(showPowerUp, 10000);
+      // Start money counter updates
+      moneyUpdateInterval = setInterval(updateMoneyCounters, 5000);
       
     } else {
       // Deactivate GTA Mode
@@ -3070,15 +3116,9 @@ document.addEventListener("DOMContentLoaded", function () {
           el.parentNode.removeChild(el);
         }
       });
-
-      // Hide quest notification
-      document.querySelector('.quest-notification').style.display = 'none';
       
       // Hide achievement
       if (achievement) achievement.classList.remove('show');
-      
-      // Hide power-up notification
-      if (powerUpNotification) powerUpNotification.style.display = 'none';
       
       // Remove all energy particles
       energyParticles.forEach(particle => {
@@ -3087,6 +3127,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
       energyParticles = [];
+      
+      // Stop money counter updates
+      clearInterval(moneyUpdateInterval);
+      
+      // Reset money counter values
+      if (moneyValue) moneyValue.textContent = "1,000,000";
+      if (stockValue) stockValue.textContent = "+487%";
+      if (cryptoValue) cryptoValue.textContent = "2,345";
       
       // Update mode text
       document.querySelector('.mode-text').textContent = 'Dev Mode';
@@ -3130,16 +3178,6 @@ document.addEventListener("DOMContentLoaded", function () {
       positionGlasses();
     }
   });
-  
-  // Power-up notification button event
-  if (powerUpNotification) {
-    const closeButton = powerUpNotification.querySelector('button');
-    if (closeButton) {
-      closeButton.addEventListener('click', function() {
-        powerUpNotification.style.display = 'none';
-      });
-    }
-  }
 });
 
 // About Section Bubbles
