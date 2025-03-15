@@ -17,6 +17,9 @@
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<!-- Added cyberpunk and gaming fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- Vendor CSS Files -->
 <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -1075,70 +1078,423 @@
 
   /* ===== GAMING MODE STYLES ===== */
   body.gaming-mode {
-    background-color: #121212;
+    background-color: #0a0a0a;
     color: #e0e0e0;
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Orbitron', sans-serif;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23000000" /><path d="M0 50 L100 50" stroke="%23111111" stroke-width="1" /><path d="M50 0 L50 100" stroke="%23111111" stroke-width="1" /></svg>');
+    background-size: 50px 50px;
+    position: relative;
+  }
+
+  body.gaming-mode::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0,50,100,0.15) 0%, rgba(0,0,0,0) 70%);
+    pointer-events: none;
+    z-index: 1;
   }
 
   body.gaming-mode .section {
-    background-color: #1a1a1a;
-    border: 2px solid #444;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+    background-color: rgba(15, 15, 20, 0.8);
+    border: 1px solid #333;
+    box-shadow: 0 0 20px rgba(0, 150, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  body.gaming-mode .section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #00c6ff, transparent);
+    animation: scanline 3s linear infinite;
+  }
+
+  @keyframes scanline {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
   }
 
   body.gaming-mode .section-title h2 {
-    color: #00ff00;
-    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+    color: #00c6ff;
+    text-shadow: 0 0 10px rgba(0, 198, 255, 0.7);
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
   }
 
   body.gaming-mode .section-title h2::after {
-    background: linear-gradient(90deg, #00ff00, #00aa00);
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+    background: linear-gradient(90deg, #0047ab, #00c6ff);
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.7);
+    height: 2px;
+    width: 100px;
   }
 
-  body.gaming-mode .about-content,
-  body.gaming-mode .skill-card,
-  body.gaming-mode .expertise-item,
-  body.gaming-mode .timeline-content,
-  body.gaming-mode .portfolio-card,
-  body.gaming-mode .contact-info-card,
-  body.gaming-mode .contact-form-card {
-    background-color: #222;
-    border: 1px solid #444;
-    color: #e0e0e0;
+  /* About section gaming mode */
+  body.gaming-mode #about {
+    background-color: rgba(10, 10, 15, 0.9);
+    border: 1px solid #333;
+    position: relative;
   }
 
-  body.gaming-mode .skill-highlight {
+  body.gaming-mode #about-text {
+    color: #b8b8b8;
+    font-family: 'Chakra Petch', sans-serif;
+    line-height: 1.6;
+  }
+
+  body.gaming-mode .tech-stack {
+    background: rgba(0, 20, 40, 0.6);
+    border: 1px solid #0066cc;
+    border-radius: 4px;
+    padding: 3px 8px;
+    color: #00c6ff;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(0, 198, 255, 0.5);
+  }
+
+  body.gaming-mode .tech-stack:hover {
+    background: rgba(0, 30, 60, 0.8);
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+    transform: translateY(-2px);
+  }
+
+  body.gaming-mode .tech-icon {
+    filter: drop-shadow(0 0 2px rgba(0, 198, 255, 0.7));
+  }
+
+  /* Skills section gaming mode */
+  body.gaming-mode .skills-section {
+    background-color: rgba(10, 10, 15, 0.9);
+    position: relative;
+  }
+
+  body.gaming-mode .skills-header h2 {
+    color: #00c6ff;
+    text-shadow: 0 0 10px rgba(0, 198, 255, 0.7);
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  body.gaming-mode .skills-header p {
+    color: #b8b8b8;
+    font-family: 'Chakra Petch', sans-serif;
+  }
+
+  body.gaming-mode .skill-item {
+    background: linear-gradient(135deg, rgba(0, 20, 40, 0.8), rgba(0, 40, 80, 0.8));
+    border: 1px solid rgba(0, 198, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.2);
+  }
+
+  body.gaming-mode .skill-item:hover {
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+    transform: scale(1.05) translateY(-2px);
+  }
+
+  body.gaming-mode .skill-item img {
+    filter: drop-shadow(0 0 2px rgba(0, 198, 255, 0.7));
+  }
+
+  /* Services section gaming mode */
+  body.gaming-mode #services {
+    background-color: rgba(10, 10, 15, 0.9);
+    position: relative;
+  }
+
+  body.gaming-mode .service-item {
+    background: rgba(15, 15, 25, 0.7);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  body.gaming-mode .service-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, #0047ab, #00c6ff);
+  }
+
+  body.gaming-mode .service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 198, 255, 0.2);
+  }
+
+  body.gaming-mode .service-item .icon {
+    color: #00c6ff;
+    font-size: 28px;
+    text-shadow: 0 0 10px rgba(0, 198, 255, 0.7);
+  }
+
+  body.gaming-mode .service-item h4 {
+    color: #00c6ff;
+    font-family: 'Orbitron', sans-serif;
+    margin-top: 10px;
+  }
+
+  body.gaming-mode .service-item p {
+    color: #b8b8b8;
+    font-family: 'Chakra Petch', sans-serif;
+  }
+
+  /* Resume section gaming mode */
+  body.gaming-mode .resume {
+    background-color: rgba(10, 10, 15, 0.9);
+    position: relative;
+  }
+
+  body.gaming-mode .timeline-header {
+    background-color: rgba(20, 20, 30, 0.7);
+    border: 1px solid #333;
+  }
+
+  body.gaming-mode .timeline-header-item {
+    color: #b8b8b8;
+    font-family: 'Chakra Petch', sans-serif;
+  }
+
+  body.gaming-mode .timeline-header-item.active {
+    background: linear-gradient(135deg, #0047ab, #00c6ff);
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+  }
+
+  body.gaming-mode .timeline-section::before {
     background-color: #333;
   }
 
-  body.gaming-mode .skill-highlight:hover {
-    background-color: #444;
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
-  }
-
-  body.gaming-mode .expertise-icon,
   body.gaming-mode .timeline-marker {
-    background: linear-gradient(135deg, #00aa00, #00ff00);
+    background: linear-gradient(135deg, #0047ab, #00c6ff);
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
   }
 
-  body.gaming-mode .progress-bar {
-    background: linear-gradient(90deg, #00ff00, #00aa00);
+  body.gaming-mode .timeline-content {
+    background-color: rgba(15, 15, 25, 0.7);
+    border: 1px solid #333;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
 
-  /* RPG Elements */
+  body.gaming-mode .timeline-date {
+    background-color: rgba(20, 20, 30, 0.7);
+    color: #b8b8b8;
+    border: 1px solid #333;
+  }
+
+  body.gaming-mode .timeline-title {
+    color: #00c6ff;
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  body.gaming-mode .timeline-company {
+    color: #4cc9f0;
+  }
+
+  body.gaming-mode .timeline-description {
+    color: #b8b8b8;
+    font-family: 'Chakra Petch', sans-serif;
+  }
+
+  body.gaming-mode .education-highlights .badge {
+    background-color: rgba(20, 20, 30, 0.7);
+    color: #b8b8b8;
+    border: 1px solid #333;
+  }
+
+  body.gaming-mode .resume-download-btn {
+    background: linear-gradient(135deg, #0047ab, #00c6ff);
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  body.gaming-mode .resume-download-btn:hover {
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.7);
+  }
+
+  /* Portfolio section gaming mode */
+  body.gaming-mode .portfolio {
+    background-color: rgba(10, 10, 15, 0.9);
+    position: relative;
+  }
+
+  body.gaming-mode .filters-list {
+    background-color: rgba(20, 20, 30, 0.7);
+    border: 1px solid #333;
+  }
+
+  body.gaming-mode .filters-list li {
+    color: #b8b8b8;
+    font-family: 'Chakra Petch', sans-serif;
+  }
+
+  body.gaming-mode .filters-list li.filter-active {
+    background: linear-gradient(135deg, #0047ab, #00c6ff);
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+  }
+
+  body.gaming-mode .portfolio-card {
+    background-color: rgba(15, 15, 25, 0.7);
+    border: 1px solid #333;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  body.gaming-mode .portfolio-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #0047ab, #00c6ff);
+    z-index: 1;
+  }
+
+  body.gaming-mode .portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 198, 255, 0.3);
+  }
+
+  body.gaming-mode .portfolio-info h4 {
+    color: #00c6ff;
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  body.gaming-mode .portfolio-info p {
+    color: #b8b8b8;
+    font-family: 'Chakra Petch', sans-serif;
+  }
+
+  body.gaming-mode .portfolio-tags .tag {
+    background-color: rgba(20, 20, 30, 0.7);
+    color: #b8b8b8;
+    border: 1px solid #333;
+  }
+
+  body.gaming-mode .portfolio-card:hover .portfolio-tags .tag {
+    background-color: rgba(30, 30, 40, 0.7);
+    box-shadow: 0 0 5px rgba(0, 198, 255, 0.3);
+  }
+
+  /* Contact section gaming mode */
+  body.gaming-mode .contact {
+    background-color: rgba(10, 10, 15, 0.9);
+    position: relative;
+  }
+
+  body.gaming-mode .contact-info-card,
+  body.gaming-mode .contact-form-card {
+    background-color: rgba(15, 15, 25, 0.7);
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  body.gaming-mode .contact-info-header,
+  body.gaming-mode .contact-form-header {
+    background: linear-gradient(135deg, #0047ab, #00c6ff);
+  }
+
+  body.gaming-mode .contact-info-header h3,
+  body.gaming-mode .contact-form-header h3 {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  body.gaming-mode .contact-info-item {
+    border-bottom: 1px solid #333;
+  }
+
+  body.gaming-mode .icon-box {
+    background-color: rgba(0, 20, 40, 0.6);
+    color: #00c6ff;
+  }
+
+  body.gaming-mode .contact-info-item .content h5 {
+    color: #00c6ff;
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  body.gaming-mode .contact-info-item .content p {
+    color: #b8b8b8;
+    font-family: 'Chakra Petch', sans-serif;
+  }
+
+  body.gaming-mode .social-links a {
+    background-color: rgba(20, 20, 30, 0.7);
+    color: #b8b8b8;
+    border: 1px solid #333;
+  }
+
+  body.gaming-mode .social-links a:hover {
+    background: linear-gradient(135deg, #0047ab, #00c6ff);
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+  }
+
+  body.gaming-mode .form-group label {
+    color: #00c6ff;
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  body.gaming-mode .input-group-text {
+    background-color: rgba(20, 20, 30, 0.7);
+    border: 1px solid #333;
+    color: #b8b8b8;
+  }
+
+  body.gaming-mode .form-control {
+    background-color: rgba(30, 30, 40, 0.7);
+    border: 1px solid #333;
+    color: #e0e0e0;
+  }
+
+  body.gaming-mode .form-control:focus {
+    border-color: #00c6ff;
+    box-shadow: 0 0 0 0.25rem rgba(0, 198, 255, 0.25);
+  }
+
+  body.gaming-mode .submit-btn {
+    background: linear-gradient(135deg, #0047ab, #00c6ff);
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  body.gaming-mode .submit-btn:hover {
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.7);
+  }
+
+  /* RPG Elements - Enhanced */
   .rpg-stats-bar {
     display: none;
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 2px solid #00ff00;
+    background-color: rgba(10, 15, 25, 0.85);
+    border: 2px solid #00c6ff;
     border-radius: 10px;
     padding: 15px;
     z-index: 1000;
     width: 250px;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    box-shadow: 0 0 20px rgba(0, 198, 255, 0.5);
+    font-family: 'Orbitron', sans-serif;
+    backdrop-filter: blur(5px);
   }
 
   body.gaming-mode .rpg-stats-bar {
@@ -1159,9 +1515,10 @@
 
   .rpg-stat-bar {
     height: 10px;
-    background-color: #333;
+    background-color: rgba(30, 30, 40, 0.7);
     border-radius: 5px;
     overflow: hidden;
+    border: 1px solid #333;
   }
 
   .rpg-stat-fill {
@@ -1171,15 +1528,18 @@
   }
 
   .rpg-health .rpg-stat-fill {
-    background: linear-gradient(90deg, #ff0000, #ff5555);
+    background: linear-gradient(90deg, #ff0055, #ff5555);
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
   }
 
   .rpg-mana .rpg-stat-fill {
-    background: linear-gradient(90deg, #0055ff, #00aaff);
+    background: linear-gradient(90deg, #0047ab, #00c6ff);
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.5);
   }
 
   .rpg-exp .rpg-stat-fill {
     background: linear-gradient(90deg, #ffaa00, #ffff00);
+    box-shadow: 0 0 10px rgba(255, 170, 0, 0.5);
   }
 
   .rpg-level {
@@ -1187,21 +1547,23 @@
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #00ff00;
-    color: #000;
-    padding: 5px 10px;
+    background: linear-gradient(135deg, #0047ab, #00c6ff);
+    color: #fff;
+    padding: 5px 15px;
     border-radius: 20px;
     font-size: 12px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+    box-shadow: 0 0 10px rgba(0, 198, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
-  /* Floating damage numbers */
+  /* Floating damage numbers - Enhanced */
   .damage-number {
     position: absolute;
-    font-family: 'Press Start 2P', cursive;
-    color: #ff0000;
+    font-family: 'Orbitron', sans-serif;
+    color: #ff0055;
     font-weight: bold;
-    text-shadow: 1px 1px 0 #000;
+    text-shadow: 0 0 5px rgba(255, 0, 85, 0.7);
     pointer-events: none;
     animation: floatUp 1.5s forwards;
     z-index: 9999;
@@ -1210,32 +1572,37 @@
   @keyframes floatUp {
     0% {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-25px) scale(1.2);
     }
     100% {
       opacity: 0;
-      transform: translateY(-50px);
+      transform: translateY(-50px) scale(0.8);
     }
   }
 
-  /* Quest notification */
+  /* Quest notification - Enhanced */
   .quest-notification {
     display: none;
     position: fixed;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(10, 15, 25, 0.85);
     border: 2px solid #ffaa00;
     border-radius: 10px;
     padding: 15px 20px;
     color: #fff;
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Orbitron', sans-serif;
     font-size: 12px;
     z-index: 1000;
     box-shadow: 0 0 20px rgba(255, 170, 0, 0.5);
     max-width: 80%;
     text-align: center;
+    backdrop-filter: blur(5px);
   }
 
   body.gaming-mode .quest-notification {
@@ -1265,9 +1632,219 @@
     }
   }
 
-  /* Cursor */
+  /* Cursor - Enhanced */
   body.gaming-mode {
-    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2300ff00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>'), auto;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2300c6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>'), auto;
+  }
+
+  /* New Gaming Mode Elements */
+  /* Glitch effect for section titles */
+  body.gaming-mode .section-title h2 {
+    position: relative;
+    animation: glitch 3s infinite;
+  }
+
+  @keyframes glitch {
+    0% { transform: translate(0); }
+    1% { transform: translate(-2px, 2px); }
+    2% { transform: translate(2px, -2px); }
+    3% { transform: translate(0); }
+    10% { transform: translate(0); }
+    11% { transform: translate(-1px, 1px); }
+    12% { transform: translate(1px, -1px); }
+    13% { transform: translate(0); }
+    100% { transform: translate(0); }
+  }
+
+  /* Holographic elements */
+  body.gaming-mode .holographic {
+    position: relative;
+    overflow: hidden;
+  }
+
+  body.gaming-mode .holographic::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+      rgba(0, 198, 255, 0) 0%, 
+      rgba(0, 198, 255, 0.1) 25%, 
+      rgba(0, 198, 255, 0.2) 50%, 
+      rgba(0, 198, 255, 0.1) 75%, 
+      rgba(0, 198, 255, 0) 100%);
+    animation: holographic 3s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes holographic {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  /* Power-up notification */
+  .power-up-notification {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(10, 15, 25, 0.85);
+    border: 2px solid #00c6ff;
+    border-radius: 10px;
+    padding: 20px;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    z-index: 2000;
+    box-shadow: 0 0 30px rgba(0, 198, 255, 0.7);
+    text-align: center;
+    backdrop-filter: blur(5px);
+    max-width: 80%;
+  }
+
+  .power-up-notification h3 {
+    color: #00c6ff;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .power-up-notification p {
+    margin-bottom: 15px;
+  }
+
+  .power-up-notification button {
+    background: linear-gradient(135deg, #0047ab, #00c6ff);
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .power-up-notification button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.7);
+  }
+
+  /* Achievement system */
+  .achievement {
+    position: fixed;
+    top: 80px;
+    right: -300px;
+    background-color: rgba(10, 15, 25, 0.85);
+    border: 2px solid #ffaa00;
+    border-radius: 10px;
+    padding: 15px;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(255, 170, 0, 0.5);
+    width: 280px;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    transition: right 0.5s ease-out;
+  }
+
+  .achievement.show {
+    right: 20px;
+    animation: achievementPulse 2s infinite;
+  }
+
+  @keyframes achievementPulse {
+    0% { box-shadow: 0 0 10px rgba(255, 170, 0, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(255, 170, 0, 0.8); }
+    100% { box-shadow: 0 0 10px rgba(255, 170, 0, 0.5); }
+  }
+
+  .achievement-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #ffaa00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+
+  .achievement-content h4 {
+    margin: 0 0 5px 0;
+    color: #ffaa00;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  .achievement-content p {
+    margin: 0;
+    font-size: 12px;
+    opacity: 0.9;
+  }
+
+  /* Terminal effect for code sections */
+  body.gaming-mode .terminal-section {
+    background-color: rgba(10, 15, 20, 0.95);
+    border: 1px solid #00c6ff;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: 'Chakra Petch', monospace;
+    color: #00c6ff;
+    position: relative;
+    margin: 20px 0;
+  }
+
+  body.gaming-mode .terminal-header {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background-color: #0a0f14;
+    padding: 0 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  body.gaming-mode .terminal-content {
+    padding-top: 10px;
+  }
+
+  body.gaming-mode .terminal-content::before {
+    content: "> ";
+    color: #00c6ff;
+  }
+
+  /* Cyberpunk grid overlay */
+  body.gaming-mode .grid-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0deg, transparent 24%, rgba(0, 198, 255, 0.05) 25%, rgba(0, 198, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 198, 255, 0.05) 75%, rgba(0, 198, 255, 0.05) 76%, transparent 77%, transparent),
+                      linear-gradient(90deg, transparent 24%, rgba(0, 198, 255, 0.05) 25%, rgba(0, 198, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 198, 255, 0.05) 75%, rgba(0, 198, 255, 0.05) 76%, transparent 77%, transparent);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Energy particles */
+  .energy-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: #00c6ff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2;
+    box-shadow: 0 0 5px rgba(0, 198, 255, 0.7);
+    opacity: 0;
   }
 </style>
 </head>
@@ -1343,6 +1920,27 @@
   NEW QUEST: "Master of Code" - Explore all sections of the portfolio to unlock special abilities!
 </div>
 
+<!-- Achievement Notification -->
+<div class="achievement">
+  <div class="achievement-icon">
+    <i class="bi bi-trophy"></i>
+  </div>
+  <div class="achievement-content">
+    <h4>Achievement Unlocked!</h4>
+    <p>Code Explorer: Discovered the developer's secret skills</p>
+  </div>
+</div>
+
+<!-- Power-up Notification -->
+<div class="power-up-notification">
+  <h3>Power-Up Acquired!</h3>
+  <p>You've unlocked the "Code Vision" ability. You can now see through complex algorithms!</p>
+  <button>Continue</button>
+</div>
+
+<!-- Cyberpunk Grid Overlay -->
+<div class="grid-overlay"></div>
+
 <main class="main">
 
   <!-- Hero Section -->
@@ -1374,6 +1972,8 @@
     <!-- Sound Effects -->
     <audio id="gtaThemeMusic" src="assets/sounds/gta-theme.mp3" preload="auto"></audio>
     <audio id="toggleSound" src="assets/sounds/toggle.mp3" preload="auto"></audio>
+    <audio id="achievementSound" src="assets/sounds/achievement.mp3" preload="auto"></audio>
+    <audio id="powerupSound" src="assets/sounds/powerup.mp3" preload="auto"></audio>
   </section>
 
   <!-- About Section -->
@@ -1955,7 +2555,7 @@
               </div>
               <div class="content">
                 <h5>Email</h5>
-                <p>patrickperez1322@gmail.com</p>
+                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1c6c7d686e757f776c796e79662d2f2e2e5c7b717d7570327f7371">[email&#160;protected]</a></p>
               </div>
             </div>
             
@@ -2051,7 +2651,7 @@
 <div id="preloader"></div>
 
 <!-- Vendor JS Files -->
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/vendor/php-email-form/validate.js"></script>
 <script src="assets/vendor/aos/aos.js"></script>
 <script src="assets/vendor/typed.js/typed.umd.js"></script>
@@ -2110,17 +2710,21 @@ document.getElementById("contact-form").addEventListener("submit", function(even
   );
 });
 
-// GTA Mode Script with RPG Elements
+// Gaming Mode Script with RPG Elements
 document.addEventListener("DOMContentLoaded", function () {
   const gtaToggle = document.getElementById("gtaToggle");
   const heroSection = document.getElementById("hero");
   const typedText = document.getElementById("typed-text");
   const gtaThemeMusic = document.getElementById("gtaThemeMusic");
   const toggleSound = document.getElementById("toggleSound");
+  const achievementSound = document.getElementById("achievementSound");
+  const powerupSound = document.getElementById("powerupSound");
   const heroBg = document.querySelector("#hero .hero-bg");
   const thugLifeGlasses = document.getElementById("thugLifeGlasses");
   const container = document.querySelector("#hero .container");
   const body = document.body;
+  const achievement = document.querySelector(".achievement");
+  const powerUpNotification = document.querySelector(".power-up-notification");
   
   // Required elements check to prevent null reference errors
   if (!gtaToggle || !heroSection || !typedText) {
@@ -2144,6 +2748,8 @@ document.addEventListener("DOMContentLoaded", function () {
   gtaThemeMusic.loop = true;
   gtaThemeMusic.volume = 0.7;
   toggleSound.volume = 0.3;
+  achievementSound.volume = 0.5;
+  powerupSound.volume = 0.5;
 
   // Typed.js Words
   let normalWords = ["Software Engineer", "Developer", "Data Analyst", "Web Designer"];
@@ -2151,6 +2757,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let typedInstance;
   let stars = [];
   let moneyInterval;
+  let energyParticles = [];
 
   // Function to position glasses relative to the face/container
   function positionGlasses() {
@@ -2238,8 +2845,122 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener('click', function(e) {
     if (body.classList.contains('gaming-mode')) {
       createDamageNumber(e.clientX, e.clientY, Math.floor(Math.random() * 100) + 1);
+      createEnergyParticles(e.clientX, e.clientY, 10);
     }
   });
+
+  // Create energy particles
+  function createEnergyParticles(x, y, count) {
+    for (let i = 0; i < count; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('energy-particle');
+      particle.style.left = `${x}px`;
+      particle.style.top = `${y}px`;
+      document.body.appendChild(particle);
+      
+      // Random direction and speed
+      const angle = Math.random() * Math.PI * 2;
+      const speed = Math.random() * 5 + 3;
+      const dx = Math.cos(angle) * speed;
+      const dy = Math.sin(angle) * speed;
+      
+      // Store particle data
+      energyParticles.push({
+        element: particle,
+        dx: dx,
+        dy: dy,
+        life: 100
+      });
+      
+      // Start with opacity 0
+      gsap.to(particle, {
+        opacity: 0.8,
+        duration: 0.2,
+        onComplete: () => {
+          // Then fade out
+          gsap.to(particle, {
+            opacity: 0,
+            duration: 1,
+            delay: 0.5
+          });
+        }
+      });
+    }
+  }
+
+  // Update energy particles
+  function updateEnergyParticles() {
+    for (let i = energyParticles.length - 1; i >= 0; i--) {
+      const particle = energyParticles[i];
+      
+      // Update position
+      const currentLeft = parseFloat(particle.element.style.left);
+      const currentTop = parseFloat(particle.element.style.top);
+      particle.element.style.left = `${currentLeft + particle.dx}px`;
+      particle.element.style.top = `${currentTop + particle.dy}px`;
+      
+      // Decrease life
+      particle.life -= 1;
+      
+      // Remove if life is over
+      if (particle.life <= 0) {
+        if (particle.element.parentNode) {
+          particle.element.parentNode.removeChild(particle.element);
+        }
+        energyParticles.splice(i, 1);
+      }
+    }
+    
+    // Continue animation if in gaming mode
+    if (body.classList.contains('gaming-mode')) {
+      requestAnimationFrame(updateEnergyParticles);
+    }
+  }
+
+  // Show achievement notification
+  function showAchievement() {
+    if (achievement) {
+      achievement.classList.add('show');
+      
+      try {
+        achievementSound.currentTime = 0;
+        achievementSound.play().catch(e => console.warn("Audio autoplay blocked:", e));
+      } catch (error) {
+        console.warn("Audio error:", error);
+      }
+      
+      setTimeout(() => {
+        achievement.classList.remove('show');
+      }, 5000);
+    }
+  }
+
+  // Show power-up notification
+  function showPowerUp() {
+    if (powerUpNotification) {
+      powerUpNotification.style.display = 'block';
+      
+      try {
+        powerupSound.currentTime = 0;
+        powerupSound.play().catch(e => console.warn("Audio autoplay blocked:", e));
+      } catch (error) {
+        console.warn("Audio error:", error);
+      }
+      
+      // Add click event to close button
+      const closeButton = powerUpNotification.querySelector('button');
+      if (closeButton) {
+        closeButton.addEventListener('click', function() {
+          powerUpNotification.style.display = 'none';
+        });
+      }
+      
+      // Auto-close after 8 seconds
+      setTimeout(() => {
+        powerUpNotification.style.display = 'none';
+      }, 8000);
+    }
+  }
 
   gtaToggle.addEventListener("change", function () {
     // Play toggle sound
@@ -2302,6 +3023,15 @@ document.addEventListener("DOMContentLoaded", function () {
       // Update mode text
       document.querySelector('.mode-text').textContent = 'Dev Mode';
       
+      // Start energy particles animation
+      requestAnimationFrame(updateEnergyParticles);
+      
+      // Show achievement after 3 seconds
+      setTimeout(showAchievement, 3000);
+      
+      // Show power-up after 10 seconds
+      setTimeout(showPowerUp, 10000);
+      
     } else {
       // Deactivate GTA Mode
       heroSection.classList.remove("gta-dark-mode");
@@ -2343,6 +3073,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Hide quest notification
       document.querySelector('.quest-notification').style.display = 'none';
+      
+      // Hide achievement
+      if (achievement) achievement.classList.remove('show');
+      
+      // Hide power-up notification
+      if (powerUpNotification) powerUpNotification.style.display = 'none';
+      
+      // Remove all energy particles
+      energyParticles.forEach(particle => {
+        if (particle.element && particle.element.parentNode) {
+          particle.element.parentNode.removeChild(particle.element);
+        }
+      });
+      energyParticles = [];
       
       // Update mode text
       document.querySelector('.mode-text').textContent = 'Dev Mode';
@@ -2386,6 +3130,16 @@ document.addEventListener("DOMContentLoaded", function () {
       positionGlasses();
     }
   });
+  
+  // Power-up notification button event
+  if (powerUpNotification) {
+    const closeButton = powerUpNotification.querySelector('button');
+    if (closeButton) {
+      closeButton.addEventListener('click', function() {
+        powerUpNotification.style.display = 'none';
+      });
+    }
+  }
 });
 
 // About Section Bubbles
