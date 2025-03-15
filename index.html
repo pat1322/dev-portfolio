@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Head section remains unchanged -->
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -31,7 +32,7 @@
 <!-- Main CSS File -->
 <link href="assets/css/main.css" rel="stylesheet">
 
-<!-- Grouped CSS Styles -->
+<!-- Grouped CSS Styles - Same as original but removing the floating-stats-container display in gaming mode -->
 <style>
   /* ===== HEADER STYLES ===== */
   .profile-img-container {
@@ -1688,133 +1689,116 @@
     }
   }
 
-  /* Redesigned Game Stats Container */
-  .game-stats-container {
-    display: none;
+  /* Floating money counters and graphs for hero section */
+  .floating-stats-container {
+    display: none; /* Changed from block to none to hide by default */
     position: absolute;
     top: 80px;
-    left: 20px;
+    right: 20px;
     z-index: 100;
-    width: 200px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
   }
 
-  body.gaming-mode .game-stats-container {
+  /* Remove this line to hide stats in gaming mode */
+  /* body.gaming-mode .floating-stats-container {
     display: block;
-    opacity: 1;
+  } */
+
+  .floating-stat {
+    background-color: rgba(10, 15, 25, 0.85);
+    border: 2px solid #00c6ff;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+      sans-serif;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+    backdrop-filter: blur(5px);
+    animation: floatUpDown 3s ease-in-out infinite alternate;
   }
 
-  body.gaming-mode .hero:hover .game-stats-container {
-    opacity: 1;
+  @keyframes floatUpDown {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
   }
 
-  .game-stat {
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 2px solid #00ff00;
-    border-radius: 0;
-    margin-bottom: 10px;
-    padding: 8px;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 10px;
+  .money-counter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .money-counter i {
+    color: #00ff00;
+    margin-right: 10px;
+    font-size: 18px;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+  }
+
+  .money-counter .value {
+    font-size: 16px;
+    font-weight: bold;
     color: #00ff00;
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-    position: relative;
-    overflow: hidden;
   }
 
-  .game-stat::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, 
-      rgba(0, 255, 0, 0.1), 
-      rgba(0, 255, 0, 0.2), 
-      rgba(0, 255, 0, 0.1));
-    opacity: 0.3;
-    animation: scanEffect 2s linear infinite;
-  }
-
-  @keyframes scanEffect {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-  }
-
-  .game-stat-label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 5px;
-  }
-
-  .game-stat-label .icon {
-    margin-right: 5px;
+  .money-counter .label {
     font-size: 12px;
+    color: #b8b8b8;
+    margin-left: 5px;
   }
 
-  .game-stat-label .value {
-    letter-spacing: 1px;
-  }
-
-  .game-stat-bar {
-    height: 8px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: 1px solid #00ff00;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .game-stat-fill {
-    height: 100%;
-    background-color: #00ff00;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
-    position: relative;
-    animation: pulseFill 2s infinite alternate;
-  }
-
-  @keyframes pulseFill {
-    0% { opacity: 0.7; }
-    100% { opacity: 1; }
-  }
-
-  .game-stat-fill::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
+  .mini-graph {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, 
-      transparent, 
-      rgba(255, 255, 255, 0.4), 
-      transparent);
-    animation: shimmer 1.5s infinite;
+    height: 40px;
+    margin-top: 10px;
+    position: relative;
   }
 
-  @keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-  }
-
-  .game-stat-pixels {
+  .mini-graph .graph-line {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px;
-    display: flex;
+    height: 100%;
+    overflow: hidden;
   }
 
-  .game-stat-pixel {
-    flex: 1;
+  .mini-graph .graph-line::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
+    background: linear-gradient(to right, transparent, #00ff00);
+    clip-path: polygon(0 100%, 10% 70%, 20% 85%, 30% 60%, 40% 50%, 50% 30%, 60% 40%, 70% 20%, 80% 30%, 90% 10%, 100% 20%, 100% 100%);
+    animation: graphPulse 2s infinite alternate;
+  }
+
+  @keyframes graphPulse {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+
+  .mini-graph .graph-dots {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .mini-graph .graph-dot {
+    width: 4px;
+    height: 4px;
     background-color: #00ff00;
-    margin: 0 1px;
-    opacity: 0.8;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
   }
 </style>
 </head>
@@ -1890,63 +1874,66 @@
       <span class="mode-text">Dev Mode</span>
     </div>
 
-    <!-- Game Stats Container - Positioned under toggle switch -->
-    <div class="game-stats-container">
-      <div class="game-stat">
-        <div class="game-stat-label">
-          <span><i class="bi bi-currency-dollar icon"></i> CREDITS</span>
-          <span class="value" id="money-value">1,000,000</span>
-        </div>
-        <div class="game-stat-bar">
-          <div class="game-stat-fill" style="width: 85%;"></div>
-          <div class="game-stat-pixels">
-            <div class="game-stat-pixel"></div>
-            <div class="game-stat-pixel"></div>
-            <div class="game-stat-pixel"></div>
-            <div class="game-stat-pixel"></div>
-            <div class="game-stat-pixel"></div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="game-stat">
-        <div class="game-stat-label">
-          <span><i class="bi bi-graph-up-arrow icon"></i> STOCKS</span>
-          <span class="value" id="stock-value">+487%</span>
-        </div>
-        <div class="game-stat-bar">
-          <div class="game-stat-fill" style="width: 75%;"></div>
-          <div class="game-stat-pixels">
-            <div class="game-stat-pixel"></div>
-            <div class="game-stat-pixel"></div>
-            <div class="game-stat-pixel"></div>
-            <div class="game-stat-pixel"></div>
-            <div class="game-stat-pixel"></div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="game-stat">
-        <div class="game-stat-label">
-          <span><i class="bi bi-coin icon"></i> CRYPTO</span>
-          <span class="value" id="crypto-value">2,345</span>
-        </div>
-        <div class="game-stat-bar">
-          <div class="game-stat-fill" style="width: 65%;"></div>
-          <div class="game-stat-pixels">
-            <div class="game-stat-pixel"></div>
-            <div class="game-stat-pixel"></div>
-            <div class="game-stat-pixel"></div>
-            <div class="game-stat-pixel"></div>
-            <div class="game-stat-pixel"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
     <!-- Accessories Container -->
     <div id="accessoriesContainer">
       <img id="thugLifeGlasses" src="assets/img/thug-life-glasses.png" class="falling-item" alt="Thug Life Glasses">
+    </div>
+    
+    <!-- Floating Stats Container (Money counters and graphs) - Now hidden in gaming mode -->
+    <div class="floating-stats-container">
+      <div class="floating-stat">
+        <div class="money-counter">
+          <i class="bi bi-currency-dollar"></i>
+          <span class="value" id="money-value">1,000,000</span>
+          <span class="label">CREDITS</span>
+        </div>
+        <div class="mini-graph">
+          <div class="graph-line"></div>
+          <div class="graph-dots">
+            <div class="graph-dot"></div>
+            <div class="graph-dot"></div>
+            <div class="graph-dot"></div>
+            <div class="graph-dot"></div>
+            <div class="graph-dot"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="floating-stat">
+        <div class="money-counter">
+          <i class="bi bi-graph-up-arrow"></i>
+          <span class="value" id="stock-value">+487%</span>
+          <span class="label">STOCKS</span>
+        </div>
+        <div class="mini-graph">
+          <div class="graph-line"></div>
+          <div class="graph-dots">
+            <div class="graph-dot"></div>
+            <div class="graph-dot"></div>
+            <div class="graph-dot"></div>
+            <div class="graph-dot"></div>
+            <div class="graph-dot"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="floating-stat">
+        <div class="money-counter">
+          <i class="bi bi-coin"></i>
+          <span class="value" id="crypto-value">2,345</span>
+          <span class="label">CRYPTO</span>
+        </div>
+        <div class="mini-graph">
+          <div class="graph-line"></div>
+          <div class="graph-dots">
+            <div class="graph-dot"></div>
+            <div class="graph-dot"></div>
+            <div class="graph-dot"></div>
+            <div class="graph-dot"></div>
+            <div class="graph-dot"></div>
+          </div>
+        </div>
+      </div>
     </div>
     
     <!-- Section-specific quest notification -->
@@ -2041,6 +2028,7 @@
       </div>
       
       <div class="skills-rows-container">
+	    <div style="margin-bottom: 10px;"></div> 
         <div class="skills-row row-1">
           <div class="skill-item" style="background-color: #00599c;">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="">C
@@ -2134,11 +2122,6 @@
         </div>
       </div>
     </div>
-    
-    <!-- Section-specific quest notification -->
-    <div class="section-quest">
-      OBJECTIVE: "Skill Master" - Collect all programming languages to level up your arsenal!
-    </div>
   </section>
 
   <!-- Services Section -->
@@ -2199,11 +2182,6 @@
           </div>
         </div><!-- End Service Item -->
       </div>
-    </div>
-    
-    <!-- Section-specific quest notification -->
-    <div class="section-quest">
-      MISSION: "Service Provider" - Unlock all service categories to maximize your tech influence!
     </div>
   </section><!-- /Services Section -->
 
@@ -2285,7 +2263,7 @@
                   <div class="timeline-content">
                     <div class="timeline-date">2018 - 2022</div>
                     <h4 class="timeline-title">Bachelor's Degree in Computer Engineering</h4>
-                    <div class="timeline-company">Bulacan State University, Malolos Bulacan</div>
+                    <div class="timeline-company">Bulacan State University | Malolos, Bulacan</div>
                     <div class="timeline-description">
                       <p>Focused on software development, algorithms, and database management. Developed projects involving C, C++, Java, and Python.</p>
                       <div class="education-highlights">
@@ -2305,7 +2283,7 @@
                   <div class="timeline-content">
                     <div class="timeline-date">2016 - 2018</div>
                     <h4 class="timeline-title">STEM Graduate</h4>
-                    <div class="timeline-company">Baliuag University, Baliuag Bulacan</div>
+                    <div class="timeline-company">Baliuag University | Baliuag, Bulacan</div>
                     <div class="timeline-description">
                       <p>Emphasized on engineering subjects to pave way for future endeavors.</p>
                       <div class="education-highlights">
@@ -2329,11 +2307,6 @@
           </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Section-specific quest notification -->
-    <div class="section-quest">
-      QUEST LOG: "Career Path" - Explore all timeline entries to unlock hidden achievements!
     </div>
   </section>
 
@@ -2515,11 +2488,6 @@
         </div>
       </div>
     </div>
-    
-    <!-- Section-specific quest notification -->
-    <div class="section-quest">
-      CHALLENGE: "Project Collector" - View all portfolio items to earn bonus development points!
-    </div>
   </section>
 
   <!-- Contact Section - Enhanced with modern design -->
@@ -2564,7 +2532,7 @@
               </div>
               <div class="content">
                 <h5>Email</h5>
-                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1c6c7d686e757f776c796e79662d2f2e2e5c7b717d7570327f7371">[email&#160;protected]</a></p>
+                <p>patrickperez1322@gmail.com</p>
               </div>
             </div>
             
@@ -2640,11 +2608,6 @@
           </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Section-specific quest notification -->
-    <div class="section-quest">
-      FINAL MISSION: "Network Connection" - Send a message to establish a powerful alliance!
     </div>
   </section>
 
@@ -2740,7 +2703,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const moneyValue = document.getElementById("money-value");
   const stockValue = document.getElementById("stock-value");
   const cryptoValue = document.getElementById("crypto-value");
-  const gameStatsContainer = document.querySelector(".game-stats-container");
   
   // Required elements check to prevent null reference errors
   if (!gtaToggle || !heroSection || !typedText) {
@@ -2981,9 +2943,9 @@ document.addEventListener("DOMContentLoaded", function () {
       moneyNotification.textContent = `+$${moneyIncrease.toLocaleString()}`;
       
       // Position near the money counter
-      const gameStatLabel = document.querySelector('.game-stat-label');
-      if (gameStatLabel) {
-        const rect = gameStatLabel.getBoundingClientRect();
+      const moneyCounter = document.querySelector('.money-counter');
+      if (moneyCounter) {
+        const rect = moneyCounter.getBoundingClientRect();
         moneyNotification.style.left = `${rect.right + 10}px`;
         moneyNotification.style.top = `${rect.top}px`;
         document.body.appendChild(moneyNotification);
@@ -2994,19 +2956,6 @@ document.addEventListener("DOMContentLoaded", function () {
             moneyNotification.parentNode.removeChild(moneyNotification);
           }
         }, 1500);
-      }
-      
-      // Update fill bars
-      const fillBars = document.querySelectorAll('.game-stat-fill');
-      if (fillBars.length >= 3) {
-        // Randomly adjust fill widths for visual effect
-        const randomWidth1 = 65 + Math.floor(Math.random() * 30);
-        const randomWidth2 = 60 + Math.floor(Math.random() * 35);
-        const randomWidth3 = 55 + Math.floor(Math.random() * 40);
-        
-        fillBars[0].style.width = `${randomWidth1}%`;
-        fillBars[1].style.width = `${randomWidth2}%`;
-        fillBars[2].style.width = `${randomWidth3}%`;
       }
     }
   }
@@ -3067,7 +3016,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 300);
       
       // Update mode text
-      document.querySelector('.mode-text').textContent = 'Gaming Mode';
+      document.querySelector('.mode-text').textContent = 'Dev Mode';
       
       // Start energy particles animation
       requestAnimationFrame(updateEnergyParticles);
