@@ -377,18 +377,6 @@
     z-index: 100;
   }
 
-  /* UPDATED: Accessories Base Styles - More responsive approach */
-  #hero .falling-item {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    transition: opacity 0.5s ease-in-out, top 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-
   /* UPDATED: Active States with Animations - Using viewport-relative positioning */
   @keyframes bounce {
     0% { transform: translateX(-50%) scale(0.5); }
@@ -890,12 +878,6 @@
   
   .contact-info-header {
     padding: 30px;
-    background: linear-0,0,0.1);
-    height: 100%;
-  }
-  
-  .contact-info-header {
-    padding: 30px;
     background: linear-gradient(135deg, #3498db, #2980b9);
     color: white;
   }
@@ -1235,7 +1217,6 @@
   body.gaming-mode .service-item h4 {
     color: #00c6ff;
     font-family: 'Orbitron', sans-serif;
-    margin-top: 10px;
   }
 
   body.gaming-mode .service-item p {
@@ -1690,11 +1671,6 @@
     z-index: 100;
   }
 
-  /* Remove this line to hide stats in gaming mode */
-  /* body.gaming-mode .floating-stats-container {
-    display: block;
-  } */
-
   .floating-stat {
     background-color: rgba(10, 15, 25, 0.85);
     border: 2px solid #00c6ff;
@@ -1704,21 +1680,12 @@
     font-family: 'Orbitron', sans-serif;
     margin-bottom: 15px;
     box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
-      sans-serif;
-    margin-bottom: 15px;
-    box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
     backdrop-filter: blur(5px);
     animation: floatUpDown 3s ease-in-out infinite alternate;
   }
 
   @keyframes floatUpDown {
     0% { transform: translateY(0); }
-    100% { transform: translateY(-10px); }
-  }
-
-  .money-counter {
-    display: flex;
-    align-items: center;
     100% { transform: translateY(-10px); }
   }
 
@@ -2732,7 +2699,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let stars = [];
   let moneyInterval;
   let energyParticles = [];
-  let moneyUpdateInterval;
 
   function startTyping(words) {
     if (typedInstance) typedInstance.destroy(); // Destroy old instance
@@ -2888,53 +2854,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Update money counters
-  function updateMoneyCounters() {
-    if (moneyValue && stockValue && cryptoValue) {
-      // Generate random increases
-      const moneyIncrease = Math.floor(Math.random() * 50000) + 10000;
-      const stockIncrease = Math.floor(Math.random() * 20) + 5;
-      const cryptoIncrease = Math.floor(Math.random() * 100) + 20;
-      
-      // Get current values
-      let currentMoney = parseInt(moneyValue.textContent.replace(/,/g, ''));
-      let currentStock = parseInt(stockValue.textContent.replace(/\+|%/g, ''));
-      let currentCrypto = parseInt(cryptoValue.textContent);
-      
-      // Update values
-      currentMoney += moneyIncrease;
-      currentStock += stockIncrease;
-      currentCrypto += cryptoIncrease;
-      
-      // Format and display
-      moneyValue.textContent = currentMoney.toLocaleString();
-      stockValue.textContent = `+${currentStock}%`;
-      cryptoValue.textContent = currentCrypto.toString();
-      
-      // Create money increase notification
-      const moneyNotification = document.createElement('div');
-      moneyNotification.classList.add('damage-number');
-      moneyNotification.style.color = '#00ff00';
-      moneyNotification.textContent = `+$${moneyIncrease.toLocaleString()}`;
-      
-      // Position near the money counter
-      const moneyCounter = document.querySelector('.money-counter');
-      if (moneyCounter) {
-        const rect = moneyCounter.getBoundingClientRect();
-        moneyNotification.style.left = `${rect.right + 10}px`;
-        moneyNotification.style.top = `${rect.top}px`;
-        document.body.appendChild(moneyNotification);
-        
-        // Animate and remove
-        setTimeout(() => {
-          if (moneyNotification.parentNode) {
-            moneyNotification.parentNode.removeChild(moneyNotification);
-          }
-        }, 1500);
-      }
-    }
-  }
-
   gtaToggle.addEventListener("change", function () {
     // Play toggle sound
     try {
@@ -2948,6 +2867,11 @@ document.addEventListener("DOMContentLoaded", function () {
       // Activate GTA Mode
       heroSection.classList.add("gta-dark-mode");
       body.classList.add("gaming-mode");
+      
+      // Change background image to hero-bg2.jpg
+      if (heroBg) {
+        heroBg.src = "assets/img/hero-bg2.jpg";
+      }
       
       try {
         startTyping(gtaWords); // Change words
@@ -2963,11 +2887,6 @@ document.addEventListener("DOMContentLoaded", function () {
         gtaThemeMusic.play().catch(e => console.warn("Audio autoplay blocked:", e));
       } catch (error) {
         console.warn("Audio error:", error);
-      }
-
-      // Change background image in dev mode
-      if (heroBg) {
-        heroBg.src = "assets/img/hero-bg2.jpg";
       }
       
       // Create star background
@@ -2997,13 +2916,15 @@ document.addEventListener("DOMContentLoaded", function () {
       // Show achievement after 3 seconds
       setTimeout(showAchievement, 3000);
       
-      // Start money counter updates
-      moneyUpdateInterval = setInterval(updateMoneyCounters, 5000);
-      
     } else {
       // Deactivate GTA Mode
       heroSection.classList.remove("gta-dark-mode");
       body.classList.remove("gaming-mode");
+      
+      // Change background image back to hero-bg.jpg
+      if (heroBg) {
+        heroBg.src = "assets/img/hero-bg.jpg";
+      }
       
       try {
         startTyping(normalWords); // Revert words
@@ -3018,11 +2939,6 @@ document.addEventListener("DOMContentLoaded", function () {
         gtaThemeMusic.currentTime = 0;
       } catch (error) {
         console.warn("Audio error:", error);
-      }
-
-      // Restore original background image
-      if (heroBg) {
-        heroBg.src = "assets/img/hero-bg.jpg";
       }
 
       // Remove stars
@@ -3051,9 +2967,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
       energyParticles = [];
-      
-      // Stop money counter updates
-      clearInterval(moneyUpdateInterval);
       
       // Reset money counter values
       if (moneyValue) moneyValue.textContent = "1,000,000";
@@ -3090,12 +3003,19 @@ document.addEventListener("DOMContentLoaded", function () {
   
   // Handle window resize to reposition accessories
   window.addEventListener("resize", function() {
-    // No need to reposition thug life glasses as they've been removed
+    if (gtaToggle.checked) {
+      // Recalculate position on resize
+      if (heroBg) {
+        heroBg.style.opacity = "1"; // Ensure background is visible
+      }
+    }
   });
   
   // Run initial positioning after images have loaded
   window.addEventListener('load', function() {
-    // No need to position thug life glasses as they've been removed
+    if (gtaToggle.checked && heroBg) {
+      heroBg.src = "assets/img/hero-bg2.jpg";
+    }
   });
 });
 
