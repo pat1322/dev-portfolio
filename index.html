@@ -389,21 +389,7 @@
     transition: opacity 0.5s ease-in-out, top 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
-  /* UPDATED: Specific Positions - Using viewport units for responsiveness */
-  #hero #thugLifeGlasses {
-    top: -80px;
-    /* Responsive width based on viewport width with minimum and maximum bounds */
-    width: clamp(40px, 5vw, 60px);
-    height: auto; /* Auto height to maintain aspect ratio */
-  }
-
   /* UPDATED: Active States with Animations - Using viewport-relative positioning */
-  #hero #thugLifeGlasses.active {
-    /* Dynamic positioning that will be managed by JavaScript */
-    opacity: 1;
-    animation: bounce 0.5s ease-in-out;
-  }
-  
   @keyframes bounce {
     0% { transform: translateX(-50%) scale(0.5); }
     50% { transform: translateX(-50%) scale(1.2); }
@@ -899,6 +885,12 @@
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 100%;
+  }
+  
+  .contact-info-header {
+    padding: 30px;
+    background: linear-0,0,0.1);
     height: 100%;
   }
   
@@ -1727,6 +1719,12 @@
   .money-counter {
     display: flex;
     align-items: center;
+    100% { transform: translateY(-10px); }
+  }
+
+  .money-counter {
+    display: flex;
+    align-items: center;
     justify-content: flex-start;
   }
 
@@ -1876,7 +1874,7 @@
 
     <!-- Accessories Container -->
     <div id="accessoriesContainer">
-      <img id="thugLifeGlasses" src="assets/img/thug-life-glasses.png" class="falling-item" alt="Thug Life Glasses">
+      <!-- Removed thug life glasses -->
     </div>
     
     <!-- Floating Stats Container (Money counters and graphs) - Now hidden in gaming mode -->
@@ -2696,7 +2694,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const toggleSound = document.getElementById("toggleSound");
   const achievementSound = document.getElementById("achievementSound");
   const heroBg = document.querySelector("#hero .hero-bg");
-  const thugLifeGlasses = document.getElementById("thugLifeGlasses");
   const container = document.querySelector("#hero .container");
   const body = document.body;
   const achievement = document.querySelector(".achievement");
@@ -2736,28 +2733,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let moneyInterval;
   let energyParticles = [];
   let moneyUpdateInterval;
-
-  // Function to position glasses relative to the face/container
-  function positionGlasses() {
-    if (!thugLifeGlasses || !container) return;
-    
-    // Get container dimensions and position
-    const containerRect = container.getBoundingClientRect();
-    const heroRect = heroSection.getBoundingClientRect();
-    
-    // Calculate relative position (above the text container which should be near your face)
-    // Adjust these values to fine-tune the position relative to your face in the image
-    const relativeTop = containerRect.top - heroRect.top - (containerRect.height * 1.49);
-    const verticalPosition = relativeTop;
-    
-    // Apply the position
-    thugLifeGlasses.style.top = `${verticalPosition}px`;
-    
-    // You might need a horizontal adjustment too
-    // Adjust leftOffset if the glasses need to move slightly left or right
-    const leftOffset = -7; // Adjust this value if needed for centering
-    thugLifeGlasses.style.marginLeft = `${leftOffset}px`;
-  }
 
   function startTyping(words) {
     if (typedInstance) typedInstance.destroy(); // Destroy old instance
@@ -2990,11 +2965,9 @@ document.addEventListener("DOMContentLoaded", function () {
         console.warn("Audio error:", error);
       }
 
-      // Show sunglasses with animation and position them properly
-      if (thugLifeGlasses) {
-        thugLifeGlasses.classList.add("active");
-        // Add slight delay to ensure layout is ready before positioning
-        setTimeout(positionGlasses, 100);
+      // Change background image in dev mode
+      if (heroBg) {
+        heroBg.src = "assets/img/hero-bg2.jpg";
       }
       
       // Create star background
@@ -3047,8 +3020,10 @@ document.addEventListener("DOMContentLoaded", function () {
         console.warn("Audio error:", error);
       }
 
-      // Hide sunglasses
-      if (thugLifeGlasses) thugLifeGlasses.classList.remove("active");
+      // Restore original background image
+      if (heroBg) {
+        heroBg.src = "assets/img/hero-bg.jpg";
+      }
 
       // Remove stars
       stars.forEach(star => {
@@ -3115,17 +3090,12 @@ document.addEventListener("DOMContentLoaded", function () {
   
   // Handle window resize to reposition accessories
   window.addEventListener("resize", function() {
-    if (gtaToggle.checked && thugLifeGlasses.classList.contains("active")) {
-      // Recalculate position on resize
-      positionGlasses();
-    }
+    // No need to reposition thug life glasses as they've been removed
   });
   
   // Run initial positioning after images have loaded
   window.addEventListener('load', function() {
-    if (gtaToggle.checked && thugLifeGlasses.classList.contains("active")) {
-      positionGlasses();
-    }
+    // No need to position thug life glasses as they've been removed
   });
 });
 
